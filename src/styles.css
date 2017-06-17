@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+.md-18 { font-size: 18px !important; }
+.md-24 { font-size: 24px !important; }
+.margin-top-15{ margin-top: 15px; }
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
+    color: #039be5;
+}
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating):hover {
+    color: #034e73;
+}
+
+/* label focus color */
+.input-field input[type=text]:focus + label, .input-field input[type=password]:focus + label {
+    color: #1976D2 !important;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus, .input-field input[type=password]:focus  {
+    border-bottom: 1px solid #1976D2 !important;
+    box-shadow: 0 1px 0 0 #1976D2 !important;
+}
+/* valid color */
+.input-field input[type=text].valid, .input-field input[type=password].valid  {
+    border-bottom: 1px solid #1976D2 !important;
+    box-shadow: 0 1px 0 0 #1976D2 !important;
+}
+
+/* icon prefix focus color */
+.input-field .prefix.active {
+    color: #1976D2 !important;
+}
+
+.message-warning{
+    background-color: gray;
+}
+.message-success{
+      background-color: green;
+}
+.message-error{
+      background-color: red;
+}
+.message-info{
+      background-color: blue;
+}

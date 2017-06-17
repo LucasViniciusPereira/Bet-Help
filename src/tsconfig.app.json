@@ -6,6 +6,10 @@
     "baseUrl": "",
     "types": []
   },
+  "compilerOptions": {
+        "target": "ES5",
+        "experimentalDecorators": true
+  },
   "exclude": [
     "test.ts",
     "**/*.spec.ts"

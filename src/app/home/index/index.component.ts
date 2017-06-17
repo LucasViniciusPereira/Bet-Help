@@ -9,9 +9,9 @@ import { HomeService } from './../home.service';
 })
 export class IndexComponent implements OnInit {
 
-  Nome:string;
+  Nome: string;
 
-  constructor(private service:HomeService) {
+  constructor(private service: HomeService) {
     this.Nome = service.getNome();
   }
 
