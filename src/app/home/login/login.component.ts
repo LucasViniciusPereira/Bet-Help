@@ -1,5 +1,7 @@
 import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Pipe } from '@angular/core';
 
+import { HomeService } from './../home.service';
 import { UserModel } from './../class/user.model';
 import { Validation } from './../../shared/class/business.validation';
 import { ValidateException } from '../../shared/decorators/validate.exception';
@@ -13,7 +15,10 @@ import { ValidateException } from '../../shared/decorators/validate.exception';
 export class LoginComponent implements OnInit {
   usuario: UserModel;
 
-  constructor() {
+  erroMessage: string;
+  userApp: any;
+
+  constructor(private svcHome: HomeService) {
     this.usuario = new UserModel();
   }
 
@@ -23,13 +28,17 @@ export class LoginComponent implements OnInit {
   @ValidateException
   public submit() {
 
-    var result = this.usuario.ValidateUserLogin(this.usuario);
+    var validate = this.usuario.ValidateUserLogin(this.usuario);
 
-    if (result.hasValidation()) {
-      return result;
+    if (validate.hasValidation()) {
+      return validate;
     }
 
-    console.log('FINALLL');
-  }
+    let result = this.svcHome.getAuthUser().subscribe(
+      user => this.userApp = user,
+      error => this.erroMessage = <any>error
+    );
 
+    console.log(result);
+  }
 }

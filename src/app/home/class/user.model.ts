@@ -17,6 +17,7 @@ export class UserModel {
      * @return {BusinessValidation}  
      */  
     public ValidateUserLogin(user: UserModel): Validation.BusinessValidation {
+
         let validation: Validation.BusinessValidation = new Validation.BusinessValidation;
         
         if (user == null)

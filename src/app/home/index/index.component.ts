@@ -11,8 +11,8 @@ export class IndexComponent implements OnInit {
 
   Nome: string;
 
-  constructor(private service: HomeService) {
-    this.Nome = service.getNome();
+  constructor() {
+  
   }
 
   ngOnInit() {
