@@ -19,6 +19,8 @@ export function ValidateException(target: Object, propertyKey: string, descripto
 
             //throw new RangeError('errro de exception');
             //Se for validação do tipo { BusinessValidation }
+            
+            //if(result as Validation.BusinessValidation)
             if (result && result.constructor.name == "BusinessValidation") {
                 return Helper.showMessage(Enumerations.eTypeMessage.ERROR, result.validations);
             }

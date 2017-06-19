@@ -1,10 +1,12 @@
+import { Helper } from './../../utils/helper';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Pipe } from '@angular/core';
 
 import { HomeService } from './../home.service';
+import { GlobalService } from './../../utils/global.service';
 import { UserModel } from './../class/user.model';
-import { Validation } from './../../shared/class/business.validation';
 import { ValidateException } from '../../shared/decorators/validate.exception';
+import { Enumerations } from '../../utils/enumerations';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +17,10 @@ import { ValidateException } from '../../shared/decorators/validate.exception';
 export class LoginComponent implements OnInit {
   usuario: UserModel;
 
-  erroMessage: string;
-  userApp: any;
-
-  constructor(private svcHome: HomeService) {
+  constructor(
+    private svcHome: HomeService,
+    private svcGlobal: GlobalService
+  ) {
     this.usuario = new UserModel();
   }
 
@@ -34,11 +36,39 @@ export class LoginComponent implements OnInit {
       return validate;
     }
 
-    let result = this.svcHome.getAuthUser().subscribe(
-      user => this.userApp = user,
-      error => this.erroMessage = <any>error
-    );
+    var result = this.Mock_validacaoUsuario(this.usuario);
 
-    console.log(result);
+    if (result == false) {
+      return Helper.showMessageError('E-mail ou senha invalidos.');
+    }
+
+    //Mock => alterar para post API
+    this.svcHome.getAuthUser().subscribe(
+      user => {
+        this.AuthenticationUser(user);
+      }
+    );
+  }
+
+  private AuthenticationUser(user: any) {
+    //var result = this.Mock_validacaoUsuario(user);
+
+    if (user) {
+      let token = this.svcGlobal.getTokenUser();
+
+      if (token == null || token == "")
+        this.svcGlobal.CreateTokenUser(user);
+
+      Helper.showMessageSuccess('Usuario Autenticado');
+    }
+    else {
+      return Helper.showMessageError('E-mail ou senha invalidos.');
+    }
+  }
+
+  private Mock_validacaoUsuario(user: UserModel): boolean {
+    if (user.email == "admin@admin.com" && user.senha == "a123456")
+      return true;
+    return false;
   }
 }

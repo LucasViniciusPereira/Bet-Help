@@ -12,13 +12,15 @@ export class HomeService {
 
   constructor(private http: Http) { }
 
-  getAuthUser(): Observable<UserModel[]> {
-    let url = "http://www.mocky.io/v2/59456971130000ff0d5b6fa3";
+/** @description Retorna o usuario MOCK.  
+ * @return {UserModel} 
+ */  
+  public getAuthUser(): Observable<UserModel[]> {
+    let url = "http://www.mocky.io/v2/5946c6051000007f0ff64eee";
 
     return this.http
       .get(url)
       .map((response: Response) =>
-        //console.log(response.json())
         <UserModel>response.json()
         ) 
       //.do(data => console.log(data))
