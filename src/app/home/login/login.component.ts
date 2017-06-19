@@ -25,15 +25,10 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private svcHome: HomeService,
-<<<<<<< HEAD
     private svcGlobal: GlobalService,
     private fb: FormBuilder
   ) {
 
-=======
-    private svcGlobal: GlobalService
-  ) {
->>>>>>> d4ba5f0b50232a3a0b8cf19f0abd87e8b9ba8cfb
     this.usuario = new UserModel();
     this.createForm();
   }
