@@ -1,12 +1,14 @@
 import { Helper } from './../../utils/helper';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Pipe } from '@angular/core';
+import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 import { HomeService } from './../home.service';
 import { GlobalService } from './../../utils/global.service';
 import { UserModel } from './../class/user.model';
 import { ValidateException } from '../../shared/decorators/validate.exception';
 import { Enumerations } from '../../utils/enumerations';
+import { ControlMessage } from '../../shared/components/control.message.component';
 
 @Component({
   selector: 'app-login',
@@ -16,15 +18,26 @@ import { Enumerations } from '../../utils/enumerations';
 
 export class LoginComponent implements OnInit {
   usuario: UserModel;
+  FormLogin: FormGroup;
 
   constructor(
     private svcHome: HomeService,
-    private svcGlobal: GlobalService
+    private svcGlobal: GlobalService,
+    private fb: FormBuilder
   ) {
+
     this.usuario = new UserModel();
+    this.createForm();
   }
 
   ngOnInit() {
+  }
+
+  createForm() {
+    this.FormLogin = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(2)]]
+    });
   }
 
   @ValidateException
