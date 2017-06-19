@@ -8,10 +8,7 @@ import { GlobalService } from './../../utils/global.service';
 import { UserModel } from './../class/user.model';
 import { ValidateException } from '../../shared/decorators/validate.exception';
 import { Enumerations } from '../../utils/enumerations';
-<<<<<<< HEAD
-import { ControlMessage } from '../../shared/components/control.message.component';
-=======
->>>>>>> d4ba5f0b50232a3a0b8cf19f0abd87e8b9ba8cfb
+import { DisplayValidation } from '../../shared/components/display.validation.component';
 
 @Component({
   selector: 'app-login',

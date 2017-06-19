@@ -8,6 +8,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { HomeModule } from './home/home.module';
 import { MenuComponent } from './shared/menu/menu.component';
 import { GlobalService } from './utils/global.service';
+import { DisplayValidationService } from './shared/services/display.validation.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { GlobalService } from './utils/global.service';
       ReactiveFormsModule,
       HomeModule
   ],
-  providers: [GlobalService],
+  providers: [GlobalService, DisplayValidationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,15 +9,15 @@
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons md-24 prefix ">person</i>
-                <input id="icon_prefix" type="text" class="validate" formControlName="email" />
+                <input id="txtemail" type="text" class="validate" formControlName="email" />
                 <label for="icon_prefix">Digite seu e-mail</label>
-                <control-messages [control]="FormLogin.controls.email"></control-messages>
+                <display-validation [control]="FormLogin.controls.email"></display-validation>
               </div>
               <div class="input-field col s12">
                 <i class="material-icons md-24 prefix">lock</i>
                 <input id="icon_telephone" type="password" class="validate" formControlName="password" />
                 <label for="icon_telephone">Digite sua senha</label>
-                <control-messages [control]="FormLogin.controls.password"></control-messages>
+                <display-validation [control]="FormLogin.controls.password"></display-validation>
               </div>
             </div>
           </form>
@@ -37,3 +37,14 @@
 
 <p>Form value: {{ FormLogin.value | json }}</p>
 <p>Form status: {{ FormLogin.status | json }}</p>
+
+<div class="row">
+  <form class="col s12">
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate">
+        <label for="email" data-error="wrong" data-success="right">Email</label>
+      </div>
+    </div>
+  </form>
+</div>

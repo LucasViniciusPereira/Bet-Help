@@ -6,7 +6,7 @@ import { HttpModule } from '@angular/http';
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
 import { HomeService } from './home.service';
-import { ControlMessage } from '../shared/components/control.message.component';
+import { DisplayValidation } from '../shared/components/display.validation.component';
 
 @NgModule({
   imports: [
@@ -18,7 +18,7 @@ import { ControlMessage } from '../shared/components/control.message.component';
   declarations: [
     LoginComponent, 
     IndexComponent,
-    ControlMessage
+    DisplayValidation
   ],
   exports:[
     LoginComponent, 
