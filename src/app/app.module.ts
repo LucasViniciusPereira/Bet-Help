@@ -9,6 +9,7 @@ import { MaterializeModule } from 'angular2-materialize';
 import { HomeModule } from './home/home.module';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { GlobalService } from './utils/global.service';
+import { AuthGuard } from './guards/auth.guard';
 import { DisplayValidationService } from './shared/services/display.validation.service';
 
 @NgModule({
@@ -17,14 +18,18 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     MenuComponent
   ],
   imports: [
-      BrowserModule,
-      HttpModule,
-      FormsModule,
-      ReactiveFormsModule,
-      AppRoutingModule,
-      HomeModule
+    BrowserModule,
+    HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    AppRoutingModule,
+    HomeModule
   ],
-  providers: [GlobalService, DisplayValidationService],
+  providers: [
+    GlobalService,
+    DisplayValidationService,
+    AuthGuard
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { AuthGuard } from './guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -23,8 +24,8 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   //{ path: 'naoEncontrado', component: CursoNaoEncontradoComponent },
   {
-    path: 'home', component: IndexComponent
-    //canActivate: [AuthGuard]
+    path: 'home', component: IndexComponent,
+    canActivate: [AuthGuard]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   //{ path: '**', component: PaginaNaoEncontradaComponent } //, canActivate: [AuthGuard]}

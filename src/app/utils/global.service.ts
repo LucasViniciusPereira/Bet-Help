@@ -25,4 +25,9 @@ export class GlobalService {
     return window.localStorage.getItem(this.tokenName);
   }
 
+  /** @description Verifica se o usuario está logado na aplicação  
+ */
+  public get UserIsAuthenticate(): boolean {
+    return this.getTokenUser();
+  }
 }

@@ -2,6 +2,7 @@ import { Helper } from './../../utils/helper';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Pipe } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { HomeService } from './../home.service';
 import { GlobalService } from './../../utils/global.service';
@@ -21,12 +22,12 @@ export class LoginComponent implements OnInit {
   FormLogin: FormGroup;
 
   constructor(
+    private router: Router,
     private svcHome: HomeService,
     private svcGlobal: GlobalService,
     private fb: FormBuilder
   ) {
-
-    this.usuario = new UserModel();
+    //this.usuario = new UserModel();
     this.createForm();
   }
 
@@ -36,13 +37,17 @@ export class LoginComponent implements OnInit {
   createForm() {
     this.FormLogin = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(2)]]
+      password: ['', [Validators.required, Validators.minLength(4)]]
     });
   }
 
   @ValidateException
   public submit() {
 
+    this.usuario = new UserModel();
+    this.usuario.email = this.FormLogin.controls.email.value;
+    this.usuario.senha = this.FormLogin.controls.password.value;
+    
     var validate = this.usuario.ValidateUserLogin(this.usuario);
 
     if (validate.hasValidation()) {
@@ -72,7 +77,8 @@ export class LoginComponent implements OnInit {
       if (token == null || token == "")
         this.svcGlobal.CreateTokenUser(user);
 
-      Helper.showMessageSuccess('Usuario Autenticado');
+      //Helper.showMessageSuccess('Usuario Autenticado');
+      this.router.navigate(['/']);
     }
     else {
       return Helper.showMessageError('E-mail ou senha invalidos.');

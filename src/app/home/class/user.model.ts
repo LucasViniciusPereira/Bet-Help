@@ -16,17 +16,16 @@ export class UserModel {
      * @param {UserModel} user Objeto UserModel  
      * @return {BusinessValidation}  
      */  
-    public ValidateUserLogin(user: UserModel): Validation.BusinessValidation {
-
+    public ValidateUserLogin(user: any): Validation.BusinessValidation {
         let validation: Validation.BusinessValidation = new Validation.BusinessValidation;
         
-        if (user == null)
+        if (user == null || user == undefined) 
             validation.addValidation(new Validation.RuleValidationSimple('O usuário não foi preenchido.'));
 
-        if (user.email == null)
+        if (user.email == null || user.email == undefined)
             validation.addValidation(new Validation.RuleValidationSimple('O campo [e-mail] não foi preenchido.'));
 
-        if (user.senha == null)
+        if (user.senha == null || user.senha == undefined)
             validation.addValidation(new Validation.RuleValidationSimple('O campo [senha] não foi preenchido.'));
 
         return validation;
