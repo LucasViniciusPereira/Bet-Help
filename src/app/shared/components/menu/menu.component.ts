@@ -16,4 +16,8 @@ export class MenuComponent implements OnInit {
     this.displayMenu = this.svcAuth.UserIsAuthenticate;
   }
 
+  logout(){
+    this.svcAuth.DeleteTokenUser();
+  }
+
 }

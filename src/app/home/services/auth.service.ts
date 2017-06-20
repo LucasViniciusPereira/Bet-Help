@@ -11,7 +11,7 @@ export class AuthService {
 
   tokenName = "tokenUserApp";
 
-  public CreateTokenUser(userModel: UserModel) {
+  CreateTokenUser(userModel: UserModel) {
     var _token = window.localStorage.getItem(this.tokenName);
 
     if (_token == null) {
@@ -19,15 +19,19 @@ export class AuthService {
     }
   }
 
-  public getTokenUser(): any {
+  getTokenUser(): any {
     return window.localStorage.getItem(this.tokenName);
   }
 
-  public get UserIsAuthenticate(): boolean {
+  get UserIsAuthenticate(): boolean {
     return this.getTokenUser() ? true : false;
   }
 
-  public AuthenticationUser(user: any) {
+  DeleteTokenUser(){
+     window.localStorage.removeItem(this.tokenName);
+  }
+
+  AuthenticationUser(user: any) {
 
     var result = this.Mock_validacaoUsuario(user);
 
