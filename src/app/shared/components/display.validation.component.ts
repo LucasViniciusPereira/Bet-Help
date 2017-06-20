@@ -17,6 +17,8 @@ export class DisplayValidation {
             if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
                 return this.svcValidation.getValidatorErrorMessage(propertyName, this.control.errors[propertyName]);
             }
+            else
+                return '.';
         }
 
         return null;
