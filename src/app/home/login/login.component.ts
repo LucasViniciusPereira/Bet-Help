@@ -1,3 +1,4 @@
+import { Helper } from './../../utils/helper';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Pipe } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
@@ -53,6 +54,12 @@ export class LoginComponent implements OnInit {
       return validate;
     }
     
+    var result = this.svcAuth.Mock_validacaoUsuario(this.usuario);
+
+    if (result == false) {
+      return Helper.showMessageError('E-mail ou senha invalidos.');
+    }
+
     //Mock => alterar para post API
     this.svcHome.getAuthUser().subscribe(
       user => {
