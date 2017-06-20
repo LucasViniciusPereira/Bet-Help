@@ -5,7 +5,7 @@ import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } 
 import { Router } from '@angular/router';
 
 import { HomeService } from './../home.service';
-import { GlobalService } from './../../utils/global.service';
+import { GlobalService } from './../../shared/services/global.service';
 import { UserModel } from './../class/user.model';
 import { ValidateException } from '../../shared/decorators/validate.exception';
 import { Enumerations } from '../../utils/enumerations';

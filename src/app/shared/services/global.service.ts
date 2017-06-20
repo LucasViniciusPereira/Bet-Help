@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { UserModel } from '../home/class/user.model';
+import { UserModel } from '../../home/class/user.model';
 
 @Injectable()
 export class GlobalService {
@@ -28,6 +28,6 @@ export class GlobalService {
   /** @description Verifica se o usuario está logado na aplicação  
  */
   public get UserIsAuthenticate(): boolean {
-    return this.getTokenUser();
+    return this.getTokenUser() ? true : false;
   }
 }
