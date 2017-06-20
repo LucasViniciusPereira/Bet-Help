@@ -3,10 +3,11 @@ import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app.routing.module';
 
 import { MaterializeModule } from 'angular2-materialize';
 import { HomeModule } from './home/home.module';
-import { MenuComponent } from './shared/menu/menu.component';
+import { MenuComponent } from './shared/components/menu/menu.component';
 import { GlobalService } from './utils/global.service';
 import { DisplayValidationService } from './shared/services/display.validation.service';
 
@@ -20,6 +21,7 @@ import { DisplayValidationService } from './shared/services/display.validation.s
       HttpModule,
       FormsModule,
       ReactiveFormsModule,
+      AppRoutingModule,
       HomeModule
   ],
   providers: [GlobalService, DisplayValidationService],
