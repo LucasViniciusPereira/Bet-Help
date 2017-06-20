@@ -5,7 +5,7 @@ export class DisplayValidationService {
     public getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
 
         let config = {
-            'required': 'Este Campo é obrigatório',
+            'required': 'Este campo é obrigatório',
             //'invalidCreditCard': 'Is invalid credit card number',
             'email': 'E-mail inválido.',
             //'invalidEmailAddress': 'E-mail inválido.',
