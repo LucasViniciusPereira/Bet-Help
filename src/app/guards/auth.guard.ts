@@ -2,13 +2,13 @@ import { Observable } from 'rxjs/Rx';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router, CanLoad, Route } from '@angular/router';
 
-import { GlobalService } from './../shared/services/global.service';
+import { AuthService } from './../home/services/auth.service';
 
 @Injectable()
 export class AuthGuard implements CanActivate, CanLoad {
 
     constructor(
-        private svcGlobal: GlobalService,
+        private svcAuth: AuthService,
         private router: Router
     ) {
 
@@ -22,7 +22,7 @@ export class AuthGuard implements CanActivate, CanLoad {
     }
 
     private verificarAcesso() {
-        if (this.svcGlobal.UserIsAuthenticate)
+        if (this.svcAuth.UserIsAuthenticate)
             return true;
 
         this.router.navigate(['/login']);

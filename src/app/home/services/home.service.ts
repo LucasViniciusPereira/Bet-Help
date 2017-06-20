@@ -5,7 +5,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/Rx';
 
-import { UserModel } from './class/user.model';
+import { UserModel } from '../class/user.model';
 
 @Injectable()
 export class HomeService {
@@ -26,6 +26,7 @@ export class HomeService {
       //.do(data => console.log(data))
       .catch(this.handleError);
   };
+
 
   private handleError(error:Response){
     let message = `Error status ${ error.status } na url: ${ error.url }`;
