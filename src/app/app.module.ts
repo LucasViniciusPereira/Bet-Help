@@ -1,3 +1,4 @@
+import { HttpService } from './utils/http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { NgModule } from '@angular/core';
@@ -28,7 +29,8 @@ import { DisplayValidationService } from './shared/services/display.validation.s
   providers: [
     GlobalService,
     DisplayValidationService,
-    AuthGuard
+    AuthGuard,
+    HttpService
   ],
   bootstrap: [AppComponent]
 })

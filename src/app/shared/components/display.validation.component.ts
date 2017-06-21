@@ -4,7 +4,7 @@ import { DisplayValidationService } from '../services/display.validation.service
 
 @Component({
     selector: 'display-validation',
-    template: '<small data-error="" data-success="" class="text-red">{{errorMessage}}</small>'
+    template: '<span class="visible-hidden">.</span><small class="text-red">{{errorMessage}}</small>'
 })
 
 export class DisplayValidation {
@@ -17,10 +17,6 @@ export class DisplayValidation {
             if (this.control.errors.hasOwnProperty(propertyName) && this.control.touched) {
                 return this.svcValidation.getValidatorErrorMessage(propertyName, this.control.errors[propertyName]);
             }
-            else
-                return '.';
         }
-
-        return null;
     }
 }

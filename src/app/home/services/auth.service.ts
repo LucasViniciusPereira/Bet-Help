@@ -1,15 +1,17 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 
 import { UserModel } from '../../home/class/user.model';
 import { Helper } from './../../utils/helper';
+import { HttpService } from './../../utils/http.service';
 
 @Injectable()
 export class AuthService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private svcHttp: HttpService) { }
 
   tokenName = "tokenUserApp";
 
@@ -25,15 +27,15 @@ export class AuthService {
     return window.localStorage.getItem(this.tokenName);
   }
 
+  DeleteTokenUser() {
+    window.localStorage.removeItem(this.tokenName);
+  }
+
   get UserIsAuthenticate(): boolean {
     let result = this.getTokenUser() ? true : false;
     this.mostrarMenuEmitter.emit(result);
 
     return result;
-  }
-
-  DeleteTokenUser() {
-    window.localStorage.removeItem(this.tokenName);
   }
 
   AuthenticationUser(user: any) {
@@ -65,5 +67,11 @@ export class AuthService {
       return true;
     return false;
   }
+
+  getAuthUser(): Observable<UserModel> {
+    let url = "http://www.mocky.io/v2/5946c6051000007f0ff64eee";
+
+    return this.svcHttp.get(url);
+  };
 
 }

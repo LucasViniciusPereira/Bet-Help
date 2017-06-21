@@ -19,7 +19,7 @@ import { DisplayValidation } from '../shared/components/display.validation.compo
   declarations: [
     LoginComponent, 
     IndexComponent,
-    DisplayValidation
+    DisplayValidation,
   ],
   exports:[
     LoginComponent, 

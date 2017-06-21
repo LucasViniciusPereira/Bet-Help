@@ -13,16 +13,13 @@ export class MenuComponent implements OnInit {
   constructor(private svcAuth: AuthService) { }
 
   ngOnInit() {
-    //this.displayMenu = this.svcAuth.UserIsAuthenticate;
-
-     this.svcAuth.mostrarMenuEmitter.subscribe(
+    this.svcAuth.mostrarMenuEmitter.subscribe(
       mostrar => this.displayMenu = mostrar
     );
 
   }
 
-  logout(){
+  logout() {
     this.svcAuth.LogoutUser();
   }
-
 }

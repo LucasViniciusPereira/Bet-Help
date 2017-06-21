@@ -1,16 +1,10 @@
 import { Helper } from './../../utils/helper';
-import { Component, OnInit, EventEmitter } from '@angular/core';
-import { Pipe } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
-
-import { HomeService } from './../services/home.service';
-//import { GlobalService } from './../../shared/services/global.service';
 import { AuthService } from './../services/auth.service';
 import { UserModel } from './../class/user.model';
 import { ValidateException } from '../../shared/decorators/validate.exception';
-import { Enumerations } from '../../utils/enumerations';
-import { DisplayValidation } from '../../shared/components/display.validation.component';
 
 @Component({
   selector: 'app-login',
@@ -23,8 +17,6 @@ export class LoginComponent implements OnInit {
   FormLogin: FormGroup;
 
   constructor(
-    private svcHome: HomeService,
-    //private svcGlobal: GlobalService,
     private svcAuth: AuthService,
     private fb: FormBuilder
   ) {
@@ -53,7 +45,7 @@ export class LoginComponent implements OnInit {
     if (validate.hasValidation()) {
       return validate;
     }
-    
+
     var result = this.svcAuth.Mock_validacaoUsuario(this.usuario);
 
     if (result == false) {
@@ -61,7 +53,7 @@ export class LoginComponent implements OnInit {
     }
 
     //Mock => alterar para post API
-    this.svcHome.getAuthUser().subscribe(
+    this.svcAuth.getAuthUser().subscribe(
       user => {
         this.svcAuth.AuthenticationUser(user);
       }

@@ -5,7 +5,7 @@
         <span class="card-title">Bet help</span>
         <span class="sub-title">Iniciar sessão</span>
         <div class="row margin-top-15">
-          <form class="col s12" [formGroup]="FormLogin" novalidate>
+          <form class="col s12" novalidate [formGroup]="FormLogin" (keydown.enter)="!FormLogin.valid ? false : submit() ">
             <div class="row">
               <div class="input-field col s12">
                 <i class="material-icons md-24 prefix ">person</i>

@@ -1,13 +1,19 @@
-<nav *ngIf="displayMenu" >
+<nav *ngIf="displayMenu">
   <div class="nav-wrapper">
     <a routerLink="/" class="brand-logo">Bet-help</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
     <ul class="right hide-on-med-and-down">
-      <!--<li routerLinkActive="active"><a routerLink="/login">Login</a></li>-->
-      <li><a (click)="logout()">Sair</a></li>
-      <!--<li><a href="badges.html">Components</a></li>
-      <li><a href="collapsible.html">Javascript</a></li>
-      <li><a href="mobile.html">Mobile</a></li>-->
+      <li>
+        <a class="dropdown-button" data-activates="dropdown1" data-belowOrigin="true">
+        <i class="material-icons left">account_circle</i>Profile
+        <!--<i class="material-icons right">arrow_drop_down</i>-->
+        </a>
+        <ul id="dropdown1" class="dropdown-content">
+          <!--<li><a href="#!">one</a></li>
+          <li class="divider"></li>-->
+          <li><a (click)="logout()">Sair</a></li>
+        </ul>
+      </li>
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <li><a href="sass.html">Sass</a></li>
