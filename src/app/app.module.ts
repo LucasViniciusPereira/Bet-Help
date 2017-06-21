@@ -1,3 +1,4 @@
+import { PreloaderService } from './shared/components/preloader/preloader.service';
 import { HttpService } from './utils/http.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
@@ -12,11 +13,15 @@ import { MenuComponent } from './shared/components/menu/menu.component';
 import { GlobalService } from './shared/services/global.service';
 import { AuthGuard } from './guards/auth.guard';
 import { DisplayValidationService } from './shared/services/display.validation.service';
+import { NotFoundComponent } from './shared/components/404/404.component';
+import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    NotFoundComponent,
+    PreloaderComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,8 @@ import { DisplayValidationService } from './shared/services/display.validation.s
     GlobalService,
     DisplayValidationService,
     AuthGuard,
-    HttpService
+    HttpService,
+    PreloaderService
   ],
   bootstrap: [AppComponent]
 })

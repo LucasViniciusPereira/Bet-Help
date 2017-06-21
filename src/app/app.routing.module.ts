@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './home/login/login.component';
 import { IndexComponent } from './home/index/index.component';
+import { NotFoundComponent } from './shared/components/404/404.component';
 
 const appRoutes: Routes = [
   // { path: 'cursos', 
@@ -28,7 +29,7 @@ const appRoutes: Routes = [
     canActivate: [AuthGuard]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  //{ path: '**', component: PaginaNaoEncontradaComponent } //, canActivate: [AuthGuard]}
+  { path: '**', component: NotFoundComponent } //, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

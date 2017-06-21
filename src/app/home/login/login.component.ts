@@ -1,10 +1,11 @@
-import { Helper } from './../../utils/helper';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './../services/auth.service';
 import { UserModel } from './../class/user.model';
 import { ValidateException } from '../../shared/decorators/validate.exception';
+import { Helper } from './../../utils/helper';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +19,15 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private svcAuth: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.createForm();
   }
 
   ngOnInit() {
+    if (this.svcAuth.UserIsAuthenticate)
+      this.router.navigate(['/']);
   }
 
   createForm() {

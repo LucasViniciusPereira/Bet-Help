@@ -5,11 +5,14 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 import 'rxjs/Rx';
 
+import { PreloaderService } from './../shared/components/preloader/preloader.service';
+
 @Injectable()
 export class HttpService {
 
     constructor(
-        private http: Http
+        private http: Http,
+        private svcPreloader: PreloaderService
     ) { }
 
     get(url: string, params?: RequestOptionsArgs): Observable<any> {
@@ -18,6 +21,7 @@ export class HttpService {
 
         return this.http.get(url, params)
             .catch(this.callbackException)
+            .delay(5000)
             .map((response: Response) =>
                 <any>response.json())
             .do((res: Response) => {
@@ -43,12 +47,10 @@ export class HttpService {
     }
 
     private onStop() {
-        console.log('Stop');
-        return;
+        this.svcPreloader.hide();
     }
 
     private onStart() {
-        console.log('Start');
-        return;
+        this.svcPreloader.show();
     }
 }
