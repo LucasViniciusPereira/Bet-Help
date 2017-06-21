@@ -1,3 +1,4 @@
+import { HomeService } from './../services/home.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit {
-  constructor() {
+  constructor(private svcHome: HomeService) {
   }
 
   ngOnInit() {
+
   }
 
+  teste() {
+      this.svcHome.getTeste().subscribe((p: Response) => console.log(p));
+  }
 }
