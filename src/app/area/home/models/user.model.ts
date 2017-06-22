@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Validation } from '../../shared/class/business.validation';
+import { Validation } from '../../../shared/class/business.validation';
 
 export class UserModel {
 

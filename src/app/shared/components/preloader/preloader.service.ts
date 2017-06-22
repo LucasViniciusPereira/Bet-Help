@@ -10,12 +10,12 @@ export class PreloaderService {
     constructor() { }
 
     show() {
-        jQuery("div.container-fluid").fadeOut();
+        jQuery("div#main-app").fadeOut();
         this.loaderSubject.emit(true);
     }
 
     hide() {
         this.loaderSubject.emit(false);
-        jQuery("div.container-fluid").fadeIn("slow");
+        jQuery("div#main-app").fadeIn("slow");
     }
 }
