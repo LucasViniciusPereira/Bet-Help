@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { LoginComponent } from './login/login.component';
 import { IndexComponent } from './index/index.component';
+import { ScoreboardComponent } from './../../shared/components/scoreboard/scoreboard.component';
 import { HomeService } from './services/home.service';
 import { AuthService } from './services/auth.service';
 import { DisplayValidation } from './../../shared/components/display.validation.component';
@@ -19,6 +20,7 @@ import { DisplayValidation } from './../../shared/components/display.validation.
   declarations: [
     LoginComponent, 
     IndexComponent,
+    ScoreboardComponent,
     DisplayValidation,
   ],
   exports:[
