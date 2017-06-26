@@ -9,6 +9,7 @@ import { ScoreboardComponent } from './../../shared/components/scoreboard/scoreb
 import { HomeService } from './services/home.service';
 import { AuthService } from './services/auth.service';
 import { DisplayValidation } from './../../shared/components/display.validation.component';
+import { DetailsComponent } from './index/details/details.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { DisplayValidation } from './../../shared/components/display.validation.
     IndexComponent,
     ScoreboardComponent,
     DisplayValidation,
+    DetailsComponent,
   ],
   exports:[
     LoginComponent, 

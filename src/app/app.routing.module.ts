@@ -8,28 +8,13 @@ import { IndexComponent } from './area/home/index/index.component';
 import { NotFoundComponent } from './shared/components/404/404.component';
 
 const appRoutes: Routes = [
-  // { path: 'cursos', 
-  //     loadChildren: 'app/cursos/cursos.module#CursosModule',
-  //     canActivate: [AuthGuard],
-  //     canActivateChild: [CursosGuard],
-  //     canLoad: [AuthGuard]
+  // { path: 'login', component: LoginComponent },
+  // {
+  //   path: 'home', component: IndexComponent,
+  //   canActivate: [AuthGuard]
   // },
-  // { path: 'alunos',
-  //     loadChildren: 'app/alunos/alunos.module#AlunosModule',
-  //     canActivate: [AuthGuard],
-  //     //canActivateChild: [AlunosGuard]
-  //     canLoad: [AuthGuard]
-  // },
-  //{ path: 'cursos', component: CursosComponent },
-  //{ path: 'curso/:id', component: CursoDetalheComponent },
-  { path: 'login', component: LoginComponent },
-  //{ path: 'naoEncontrado', component: CursoNaoEncontradoComponent },
-  {
-    path: 'home', component: IndexComponent,
-    canActivate: [AuthGuard]
-  },
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: '**', component: NotFoundComponent } //, canActivate: [AuthGuard]}
+  // { path: '', redirectTo: '/home', pathMatch: 'full' },
+  // { path: '**', component: NotFoundComponent } //, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
