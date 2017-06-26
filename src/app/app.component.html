@@ -5,7 +5,7 @@
     <router-outlet></router-outlet>
 </div>-->
 
-<button type="button" class="btn btn-primary" data-toggle="modal" (click)="openModal()">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="myModal" (click)="openModal()">
   Launch demo modal
 </button>
 
@@ -27,5 +27,20 @@
         <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Modal Trigger -->
+<a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
+ 
+<!-- Modal Structure -->
+<div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
+  <div class="modal-content">
+    <h4>Modal Header</h4>
+    <p>A bunch of text</p>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+    <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
   </div>
 </div>

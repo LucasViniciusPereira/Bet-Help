@@ -16,6 +16,7 @@ import { HttpService } from './utils/http.service';
 import { NotFoundComponent } from './shared/components/404/404.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +30,7 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    MaterializeModule,
     HomeModule
   ],
   providers: [
