@@ -13,7 +13,7 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 export class IndexComponent implements OnInit, OnDestroy {
 
   listaJogos: List<JogoModel>;
-  eventDetails: EventEmitter<any>;
+  eventDetails: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private svcHome: HomeService
@@ -21,9 +21,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.Mock_Jogos();
   }
 
-  ngOnInit() {
-    this.eventDetails = new EventEmitter();
-
+  ngOnInit() { 
     this.eventDetails.subscribe(function (data) {
       console.log('Event subscribe');
       console.log(data);
