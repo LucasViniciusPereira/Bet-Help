@@ -2,30 +2,36 @@ import { Response } from '@angular/http';
 import { List } from 'linqts';
 import { JogoModel } from './../../../shared/models/jogo.model';
 import { HomeService } from './../services/home.service';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-home-index',
   templateUrl: './index.component.html',
   styleUrls: ['./index.component.css']
 })
-export class IndexComponent implements OnInit {
+
+export class IndexComponent implements OnInit, OnDestroy {
 
   listaJogos: List<JogoModel>;
-
-  details = new EventEmitter();
+  eventDetails: EventEmitter<any>;
 
   constructor(
     private svcHome: HomeService
   ) {
     this.Mock_Jogos();
-
-    this.details.subscribe('details', function(item){
-      console.log(item);
-    });
   }
 
   ngOnInit() {
+    this.eventDetails = new EventEmitter();
+
+    this.eventDetails.subscribe(function (data) {
+      console.log('Event subscribe');
+      console.log(data);
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.eventDetails.unsubscribe();
   }
 
   Mock_Jogos() {
@@ -34,7 +40,7 @@ export class IndexComponent implements OnInit {
     );
   }
 
-  info(){
+  info() {
     console.log('teste action');
   }
 

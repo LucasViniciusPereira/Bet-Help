@@ -4,10 +4,8 @@
         <div class="card">
             <div class="card-content">
                 <app-scoreboard [jogos]="listaJogos" [controlsEvent]="[
-                { name: 'Informação', icon: 'user', action: 'info' },
-                { name: 'Ver', icon: 'pipes', action: 'details' }
+                            { name: 'Ver', icon: 'pipes', action: eventDetails }
                 ]"></app-scoreboard>
-                <button class="btn" (click)="teste()">click</button>
             </div>
         </div>
     </div>
