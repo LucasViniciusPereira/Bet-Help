@@ -4,43 +4,61 @@
 <div id="main-app" class="container-fluid">
     <router-outlet></router-outlet>
 </div>-->
+<h1 class="header">Checkbox</h1>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="myModal" (click)="openModal()">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+<h2>Default <small>inside a <code>.form-group</code></small></h2>
+<div class="form-group">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Notifications
+    </label>
   </div>
+  <p class="help-block">Notify me about updates to apps or games that I've downloaded</p>
+</div>
+<div class="form-group">
+  <div class="checkbox">
+    <label>
+      <input type="checkbox" checked=""> Auto-updates
+    </label>
+  </div>
+  <p class="help-block">Auto-update apps over wifi only</p>
 </div>
 
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
- 
-<!-- Modal Structure -->
-<div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+<h2>Horizontal form with column label variations</h2>
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2" for="ch1">Touch sounds</label>
+    <div class="col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input id="ch1" type="checkbox" checked="">
+        </label>
+      </div>
+      <p class="help-block">This shows the generic label variant.</p>
+    </div>
   </div>
-  <div class="modal-footer">
-    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
-    <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="ch3">Vibrate on touch</label>
+    <div class="col-sm-10">
+      <div class="checkbox">
+        <label>
+          <input id="ch3" type="checkbox">
+        </label>
+      </div>
+      <p class="help-block">This shows the <code>control-label</code> variant.</p>
+    </div>
   </div>
+</form>
+
+<h2>Default <small>outside a <code>.form-group</code></small></h2>
+<div class="checkbox">
+  <label>
+    <input type="checkbox"> Notifications
+  </label>
+</div>
+<p class="help-block">Without a <code>.form-group</code>, <code>.help-block</code> always shows</p>
+<div class="checkbox">
+  <label>
+    <input type="checkbox" checked=""> Auto-updates
+  </label>
 </div>
