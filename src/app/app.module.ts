@@ -4,8 +4,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from '@angular/material';
 
-import { MaterializeModule } from 'angular2-materialize';
 import { HomeModule } from './area/home/home.module';
 import { MenuComponent } from './shared/components/menu/menu.component';
 import { GlobalService } from './shared/services/global.service';
@@ -15,7 +16,6 @@ import { PreloaderService } from './shared/components/preloader/preloader.servic
 import { HttpService } from './utils/http.service';
 import { NotFoundComponent } from './shared/components/404/404.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
-
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    MaterializeModule,
+    BrowserAnimationsModule,
+    MaterialModule,
     HomeModule
   ],
   providers: [
@@ -40,6 +41,7 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     HttpService,
     PreloaderService
   ],
+  exports: [MaterialModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,11 +2,8 @@ import { Response } from '@angular/http';
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { List } from 'linqts';
 
-import {MaterializeDirective} from "angular2-materialize";
 import { JogoModel } from './../../../shared/models/jogo.model';
 import { HomeService } from './../services/home.service';
-//import "materialize-css";
-//import * as $ from 'jquery';
 
 @Component({
   selector: 'app-home-index',
@@ -34,10 +31,6 @@ export class IndexComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.eventDetails.unsubscribe();
   }
-
-  // openModal(){
-  //   $("#modal").modal();
-  // }
 
   Mock_Jogos() {
     this.svcHome.getJogosDia().subscribe(

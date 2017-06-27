@@ -1,46 +1,7 @@
-<!--<app-menu></app-menu>
+<app-menu></app-menu>
+<!--
 <app-preloader></app-preloader>
 
 <div id="main-app" class="container-fluid">
     <router-outlet></router-outlet>
 </div>-->
-
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="myModal" (click)="openModal()">
-  Launch demo modal
-</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" (click)="openModal()">Modal</a>
- 
-<!-- Modal Structure -->
-<div id="modal1" class="modal bottom-sheet" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="modalActions">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
-  </div>
-  <div class="modal-footer">
-    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
-    <a class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
-  </div>
-</div>
