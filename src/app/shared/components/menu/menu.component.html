@@ -1,4 +1,4 @@
-<nav *ngIf="displayMenu">
+<!--<nav *ngIf="displayMenu">
   <div class="nav-wrapper">
     <a routerLink="/" class="brand-logo">Bet-help</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -6,11 +6,8 @@
       <li>
         <a class="dropdown-button" data-activates="dropdown1" data-belowOrigin="true">
         <i class="material-icons left">account_circle</i>Profile
-        <!--<i class="material-icons right">arrow_drop_down</i>-->
         </a>
         <ul id="dropdown1" class="dropdown-content">
-          <!--<li><a href="#!">one</a></li>
-          <li class="divider"></li>-->
           <li><a (click)="logout()">Sair</a></li>
         </ul>
       </li>
@@ -22,4 +19,23 @@
       <li><a href="mobile.html">Mobile</a></li>
     </ul>
   </div>
-</nav>
+</nav>-->
+
+<md-sidenav-container class="example-container">
+  <md-sidenav #sidenav class="example-sidenav">
+    Jolly good!
+  </md-sidenav>
+
+ 
+</md-sidenav-container>
+
+<md-toolbar color="primary">
+   <div class="example-sidenav-content">
+    <button type="button" md-button (click)="sidenav.open()">
+      Open sidenav
+    </button>
+  </div>
+
+  <span>Custom Toolbar</span>
+
+</md-toolbar>
