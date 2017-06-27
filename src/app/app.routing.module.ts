@@ -8,13 +8,13 @@ import { IndexComponent } from './area/home/index/index.component';
 import { NotFoundComponent } from './shared/components/404/404.component';
 
 const appRoutes: Routes = [
-  // { path: 'login', component: LoginComponent },
-  // {
-  //   path: 'home', component: IndexComponent,
-  //   canActivate: [AuthGuard]
-  // },
-  // { path: '', redirectTo: '/home', pathMatch: 'full' },
-  // { path: '**', component: NotFoundComponent } //, canActivate: [AuthGuard]}
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'home', component: IndexComponent,
+    canActivate: [AuthGuard]
+  },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', component: NotFoundComponent } //, canActivate: [AuthGuard]}
 ];
 
 @NgModule({
