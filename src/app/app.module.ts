@@ -4,8 +4,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@angular/material';
 
 import { HomeModule } from './area/home/home.module';
 import { MenuComponent } from './shared/components/menu/menu.component';
@@ -30,8 +28,6 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
     HomeModule
   ],
   providers: [
@@ -41,7 +37,6 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     HttpService,
     PreloaderService
   ],
-  exports: [MaterialModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
