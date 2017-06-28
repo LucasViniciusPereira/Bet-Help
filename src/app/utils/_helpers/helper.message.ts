@@ -1,5 +1,5 @@
 import { Enumerations } from './../enumerations';
-declare var Materialize: any;
+declare var $: any;
 
 export abstract class HelperMessage {
     static displayLength = 6000;
@@ -9,30 +9,31 @@ export abstract class HelperMessage {
      * @param {any[]:message} message Array com as mensagens
      */
     static showMessage(typeMessage: Enumerations.eTypeMessage, message: any[]) {
-
+    
         switch (typeMessage) {
             case Enumerations.eTypeMessage.WARNING:
                 message.forEach(element => {
-                    Materialize.toast(element.message, this.displayLength, 'message-warning');
+                    //Materialize.toast(element.message, this.displayLength, 'message-warning');
                 });
                 break;
             case Enumerations.eTypeMessage.SUCCESS:
                 message.forEach(element => {
-                    Materialize.toast(element.message, this.displayLength, 'message-success');
+                    //Materialize.toast(element.message, this.displayLength, 'message-success');
                 });
                 break;
             case Enumerations.eTypeMessage.ERROR:
                 message.forEach(element => {
-                    Materialize.toast(element.message, this.displayLength, 'message-error');
+                   $.snackbar({content: "This is my awesome snackbar!"});
+                    //Materialize.toast(element.message, this.displayLength, 'message-error');
                 });
                 break;
             case Enumerations.eTypeMessage.INFO:
                 message.forEach(element => {
-                    Materialize.toast(element.message, this.displayLength, 'message-info');
+                    //Materialize.toast(element.message, this.displayLength, 'message-info');
                 });
                 break;
             default:
-                Materialize.toast('Ocorreu algum erro na aplicação, favor tentar novamente.', this.displayLength);
+                //Materialize.toast('Ocorreu algum erro na aplicação, favor tentar novamente.', this.displayLength);
                 break;
         }
     }
@@ -41,13 +42,15 @@ export abstract class HelperMessage {
     * @param {string:message} message String com a mensagem
     */
     static showMessageError(message: string) {
-        Materialize.toast(message, this.displayLength, 'message-error');
+       $.snackbar({content: "This is my awesome snackbar!"});
+        //Materialize.toast(message, this.displayLength, 'message-error');
     }
 
     /** @description Exibe as mensagens de Sucessp
    * @param {string:message} message String com a mensagem
    */
     static showMessageSuccess(message: string) {
-        Materialize.toast(message, this.displayLength, 'message-success');
+        debugger;
+        //Materialize.toast(message, this.displayLength, 'message-success');
     }
 }

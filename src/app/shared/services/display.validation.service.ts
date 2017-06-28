@@ -6,8 +6,8 @@ export class DisplayValidationService {
 
         let config = {
             'required': 'Este campo é obrigatório',
-            'email': 'E-mail inválido.',
-            'invalidPassword': 'Senha inválida, Password must be at least 6 characters long, and contain a number.',
+            'email': 'E-mail inválido',
+            'invalidPassword': 'Senha inválida, Password must be at least 6 characters long, and contain a number',
             'minlength': `Tamanho minímo ${validatorValue.requiredLength}`
         };
 

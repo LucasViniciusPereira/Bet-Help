@@ -5,16 +5,17 @@
 .md-24 { font-size: 24px !important; }
 .margin-top-15{ margin-top: 15px; }
 .text-red{ color: red; }
-
+.visible-hidden{ visibility: hidden; }
 .message-warning{ background-color: gray; }
 .message-success{ background-color: green; }
 .message-error{ background-color: red; }
 .message-info{ background-color: blue; }
-
+.form-group .form-control { margin-bottom: 3px; }
 .pre-loader {
     border: 6px solid #f3f3f3; border-radius: 50%; border-top: 6px solid #3498db; width: 55px; height: 55px;
     -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite; margin: auto; position: sticky; vertical-align: middle; top: 40%;
 }
+#panel-login{ transform: translateY(25%); position: absolute; }
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }

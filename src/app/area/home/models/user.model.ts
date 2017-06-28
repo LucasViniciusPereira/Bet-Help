@@ -9,7 +9,6 @@ export class UserModel {
     public tokenID: string;
 
     constructor() {
-
     }
 
     /** @description Validação do usuario para efetuar login   

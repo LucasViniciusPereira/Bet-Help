@@ -4,7 +4,7 @@ import { DisplayValidationService } from '../services/display.validation.service
 
 @Component({
     selector: 'display-validation',
-    template: '<span class="visible-hidden">.</span><small class="text-red">{{errorMessage}}</small>'
+    template: '<small class="text-red">{{errorMessage}}</small><span class="visible-hidden">.</span>'
 })
 
 export class DisplayValidation {
