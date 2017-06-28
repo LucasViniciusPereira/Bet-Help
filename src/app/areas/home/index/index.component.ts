@@ -3,7 +3,7 @@ import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/cor
 import { List } from 'linqts';
 
 import { JogoModel } from './../../../shared/models/jogo.model';
-import { HomeService } from './../services/home.service';
+import { HomeService } from './../home.service';
 
 @Component({
   selector: 'app-home-index',

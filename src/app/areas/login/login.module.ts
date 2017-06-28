@@ -1,34 +1,33 @@
 import { SharedModule } from './../../shared.module';
+import { AppModule } from './../../app.module';
 import { AppComponent } from './../../app.component';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { IndexComponent } from './index/index.component';
-import { ScoreboardComponent } from './../../shared/components/scoreboard/scoreboard.component';
-import { HomeService } from './home.service';
-import { DetailsComponent } from './details/details.component';
+import { LoginComponent } from "./login.component";
+import { AuthService } from "./auth.service";
+import { DisplayValidationComponent } from './../../shared/components/display.validation.component';
 
 @NgModule({
   imports: [
+    SharedModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule,
-    SharedModule
+    HttpModule    
   ],
   declarations: [
-    IndexComponent,
-    DetailsComponent,
-    ScoreboardComponent,
+    LoginComponent,
   ],
   exports:[
-    IndexComponent
+    LoginComponent
   ],
   providers:[
-    HomeService
+    AuthService
   ]
 
 })
-export class HomeModule { }
+
+export class LoginModule { }

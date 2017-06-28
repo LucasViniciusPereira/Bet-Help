@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { LoginComponent } from './area/home/login/login.component';
-import { IndexComponent } from './area/home/index/index.component';
+import { LoginComponent } from './areas/login/login.component';
+import { IndexComponent } from './areas/home/index/index.component';
 import { NotFoundComponent } from './shared/components/404/404.component';
 
 const appRoutes: Routes = [

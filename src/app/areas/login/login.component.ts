@@ -2,10 +2,10 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
-import { AuthService } from './../services/auth.service';
-import { UserModel } from './../models/user.model';
-import { ValidateException } from '../../../shared/decorators/validate.exception';
-import { Helper } from './../../../utils/helper';
+import { AuthService } from './auth.service';
+import { UserModel } from './../home/models/user.model';
+import { ValidateException } from './../../shared/decorators/validate.exception';
+import { Helper } from './../../utils/helper';
 
 @Component({
   selector: 'app-login',

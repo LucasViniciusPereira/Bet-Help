@@ -1,4 +1,4 @@
-import { AuthService } from './../../../area/home/services/auth.service';
+import { AuthService } from './../../../areas/login/auth.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

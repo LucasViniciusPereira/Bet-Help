@@ -7,7 +7,7 @@ import { DisplayValidationService } from '../services/display.validation.service
     template: '<small class="text-red">{{errorMessage}}</small><span class="visible-hidden">.</span>'
 })
 
-export class DisplayValidation {
+export class DisplayValidationComponent {
     @Input() control: FormControl;
 
     constructor(private svcValidation: DisplayValidationService) { }

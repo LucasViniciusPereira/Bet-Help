@@ -2,16 +2,19 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
-import { UserModel } from '../../home/models/user.model';
-import { Helper } from './../../../utils/helper';
-import { HttpService } from './../../../utils/http.service';
+import { UserModel } from './../home/models/user.model';
+import { Helper } from './../../utils/helper';
+import { HttpService } from './../../utils/http.service';
 
 @Injectable()
 export class AuthService {
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private svcHttp: HttpService) { }
+  constructor(
+    private router: Router,
+    private svcHttp: HttpService
+  ) { }
 
   tokenName = "tokenUserApp";
 

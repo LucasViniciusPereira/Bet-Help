@@ -3,8 +3,8 @@ import { Observable } from 'rxjs/Rx';
 import { Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
-import { HttpService } from './../../../utils/http.service';
-import { JogoModel } from './../../../shared/models/jogo.model';
+import { HttpService } from './../../utils/http.service';
+import { JogoModel } from './../../shared/models/jogo.model';
 
 @Injectable()
 export class HomeService {
