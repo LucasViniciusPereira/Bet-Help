@@ -1,5 +1,7 @@
 import { Enumerations } from './../enumerations';
+
 declare var $: any;
+const Snackbar = require('node-snackbar');
 
 export abstract class HelperMessage {
     static displayLength = 6000;
@@ -9,31 +11,30 @@ export abstract class HelperMessage {
      * @param {any[]:message} message Array com as mensagens
      */
     static showMessage(typeMessage: Enumerations.eTypeMessage, message: any[]) {
-    
+
         switch (typeMessage) {
             case Enumerations.eTypeMessage.WARNING:
                 message.forEach(element => {
-                    //Materialize.toast(element.message, this.displayLength, 'message-warning');
+                    this.ShowSnackBar(message, 'message-warning');
                 });
                 break;
             case Enumerations.eTypeMessage.SUCCESS:
                 message.forEach(element => {
-                    //Materialize.toast(element.message, this.displayLength, 'message-success');
+                    this.ShowSnackBar(message, 'message-success');
                 });
                 break;
             case Enumerations.eTypeMessage.ERROR:
                 message.forEach(element => {
-                   $.snackbar({content: "This is my awesome snackbar!"});
-                    //Materialize.toast(element.message, this.displayLength, 'message-error');
+                    this.ShowSnackBar(element.message, 'message-error');
                 });
                 break;
             case Enumerations.eTypeMessage.INFO:
                 message.forEach(element => {
-                    //Materialize.toast(element.message, this.displayLength, 'message-info');
+                    this.ShowSnackBar(element.message, 'message-info');
                 });
                 break;
             default:
-                //Materialize.toast('Ocorreu algum erro na aplicação, favor tentar novamente.', this.displayLength);
+                this.ShowSnackBar('Ocorreu algum erro na aplicação, favor tentar novamente.', 'default');
                 break;
         }
     }
@@ -42,15 +43,23 @@ export abstract class HelperMessage {
     * @param {string:message} message String com a mensagem
     */
     static showMessageError(message: string) {
-       $.snackbar({content: "This is my awesome snackbar!"});
-        //Materialize.toast(message, this.displayLength, 'message-error');
+        this.ShowSnackBar(message, 'message-error');
     }
 
     /** @description Exibe as mensagens de Sucessp
    * @param {string:message} message String com a mensagem
    */
     static showMessageSuccess(message: string) {
-        debugger;
-        //Materialize.toast(message, this.displayLength, 'message-success');
+        this.ShowSnackBar(message, 'message-success');
+    }
+
+    private static ShowSnackBar(message, className = "1", position = "top-right") {
+        Snackbar.show({
+            text: message,
+            customClass: 'message-error',
+            duration: this.displayLength,
+            showActionButton: false,
+            pos: position
+        });
     }
 }
