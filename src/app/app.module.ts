@@ -9,24 +9,14 @@ import { AppRoutingModule } from './app.routing.module';
 import { HomeModule } from './areas/home/home.module';
 import { LoginModule } from './areas/login/login.module';
 
-//Serviços
-import { GlobalService } from './shared/services/global.service';
-import { AuthGuard } from './guards/auth.guard';
-import { DisplayValidationService } from './shared/services/display.validation.service';
-import { PreloaderService } from './shared/components/preloader/preloader.service';
-import { HttpService } from './utils/http.service';
-
-//Componentes
-import { MenuComponent } from './shared/components/menu/menu.component';
 import { NotFoundComponent } from './shared/components/404/404.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    NotFoundComponent,
     PreloaderComponent,
+    NotFoundComponent,
 
   ],
   imports: [
@@ -37,16 +27,6 @@ import { PreloaderComponent } from './shared/components/preloader/preloader.comp
     AppRoutingModule,
     HomeModule,
     LoginModule
-  ],
-  // exports:[
-  //   DisplayValidationComponent
-  // ],
-  providers: [
-    GlobalService,
-    DisplayValidationService,
-    AuthGuard,
-    HttpService,
-    PreloaderService
   ],
   bootstrap: [AppComponent]
 })

@@ -15,6 +15,10 @@
     border: 6px solid #f3f3f3; border-radius: 50%; border-top: 6px solid #3498db; width: 55px; height: 55px;
     -webkit-animation: spin 2s linear infinite; animation: spin 2s linear infinite; margin: auto; position: sticky; vertical-align: middle; top: 40%;
 }
+.form-group.label-floating label.control-label, .form-group.label-placeholder label.control-label{
+  font-size:15px;
+}
+.prefix { float: left; margin-top: -4px; margin-right: 5px; }
 #panel-login{ transform: translateY(25%); position: absolute; }
 
 @-webkit-keyframes spin {

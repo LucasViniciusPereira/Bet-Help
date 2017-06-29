@@ -1,4 +1,3 @@
-
 <div class="row">
   <div id="panel-login" class="col-xs-12 col-sm-8 col-md-4 col-lg-4 col-sm-offset-2 col-md-offset-4 col-lg-offset-4">
     <div class="panel panel-primary">
@@ -9,13 +8,19 @@
       <div class="panel-body">
         <form class="col s12" novalidate [formGroup]="FormLogin" (keydown.enter)="!FormLogin.valid ? false : submit() ">
           <div class="form-group label-floating is-empty">
-            <label for="txtemail" class="control-label">Digite seu e-mail</label>
+            <label for="txtemail" class="control-label">
+              <!--<i class="material-icons prefix">account_circle</i>-->
+              Digite seu e-mail
+            </label>
             <input id="txtemail" class="form-control" type="email" formControlName="email" required />
             <display-validation [control]="FormLogin.controls.email"></display-validation>
           </div>
 
           <div class="form-group label-floating is-empty">
-            <label for="txtpassword" class="control-label">Digite sua senha</label>
+            <label for="txtpassword" class="control-label">
+              <!--<i class="material-icons prefix">vpn_key</i>-->
+              Digite sua senha
+            </label>
             <input id="txtpassword" type="password" class="form-control" formControlName="password" minlength="4" />
             <display-validation [control]="FormLogin.controls.password"></display-validation>
           </div>
