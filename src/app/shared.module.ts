@@ -10,16 +10,14 @@ import { HttpService } from './utils/http.service';
 import { GlobalService } from './shared/services/global.service';
 
 //Componentes
-import { MenuComponent } from './shared/components/menu/menu.component';
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
 
 @NgModule({
   declarations: [
     DisplayValidationComponent,
-    MenuComponent
   ],
   exports: [
-    DisplayValidationComponent
+    DisplayValidationComponent,
   ],
   imports: [
     CommonModule,

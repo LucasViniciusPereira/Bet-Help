@@ -8,7 +8,6 @@ import { HttpModule } from '@angular/http';
 
 import { LoginComponent } from "./login.component";
 import { AuthService } from "./auth.service";
-import { DisplayValidationComponent } from './../../shared/components/display.validation.component';
 
 @NgModule({
   imports: [
@@ -16,7 +15,7 @@ import { DisplayValidationComponent } from './../../shared/components/display.va
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule    
+    HttpModule
   ],
   declarations: [
     LoginComponent,

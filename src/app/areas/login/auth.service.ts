@@ -65,7 +65,7 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  Mock_validacaoUsuario(user: UserModel): boolean {
+  Mock_validacaoUsuario(user: any): boolean {
     if (user.email == "admin@admin.com" && user.senha == "a123456")
       return true;
     return false;

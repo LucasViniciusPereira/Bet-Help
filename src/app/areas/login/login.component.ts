@@ -1,11 +1,10 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
 
 import { AuthService } from './auth.service';
-import { UserModel } from './../home/models/user.model';
 import { ValidateException } from './../../shared/decorators/validate.exception';
 import { Helper } from './../../utils/helper';
+import { LoginFormModel } from './models/login.form.model';
 
 @Component({
   selector: 'app-login',
@@ -14,43 +13,28 @@ import { Helper } from './../../utils/helper';
 })
 
 export class LoginComponent implements OnInit {
-  usuario: UserModel;
-  FormLogin: FormGroup;
+
+  FormLogin: LoginFormModel = new LoginFormModel();
 
   constructor(
     private svcAuth: AuthService,
-    private fb: FormBuilder,
     private router: Router
-  ) {
-    this.createForm();
-  }
+  ) { }
 
   ngOnInit() {
     if (this.svcAuth.UserIsAuthenticate)
       this.router.navigate(['/']);
   }
 
-  createForm() {
-    this.FormLogin = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(4)]]
-    });
-  }
-
   @ValidateException
   public submit() {
 
-    this.usuario = new UserModel();
-    this.usuario.email = this.FormLogin.get('email').value;
-    this.usuario.senha = this.FormLogin.get('password').value;
+    var validate = this.FormLogin.ValidateLogin();
 
-    var validate = this.usuario.ValidateUserLogin(this.usuario);
-
-    if (validate.hasValidation()) {
+    if (validate.hasValidation())
       return validate;
-    }
 
-    var result = this.svcAuth.Mock_validacaoUsuario(this.usuario);
+    var result = this.svcAuth.Mock_validacaoUsuario(this.FormLogin);
 
     if (result == false) {
       return Helper.showMessageError('E-mail ou senha invalidos.');
