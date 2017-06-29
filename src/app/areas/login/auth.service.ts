@@ -66,12 +66,13 @@ export class AuthService {
   }
 
   Mock_validacaoUsuario(user: any): boolean {
-    if (user.email == "admin@admin.com" && user.senha == "a123456")
+    if (user.Email.value == "admin@admin.com" && user.Password.value == "a123456")
       return true;
     return false;
   }
 
   getAuthUser(): Observable<UserModel> {
+    console.log('auth user');
     let url = "http://www.mocky.io/v2/5946c6051000007f0ff64eee";
 
     return this.svcHttp.get(url);

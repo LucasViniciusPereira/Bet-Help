@@ -19,10 +19,13 @@ export class IndexComponent implements OnInit, OnDestroy {
   constructor(
     private svcHome: HomeService
   ) {
-    this.Mock_Jogos();
   }
 
   ngOnInit() {
+    console.log('Index component');
+
+    this.Mock_Jogos();
+    
     this.eventDetails.subscribe(function (data) {
       console.log(data);
     })

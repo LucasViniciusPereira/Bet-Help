@@ -1,32 +1,17 @@
-import { Validators, FormGroup, ValidatorFn, AsyncValidatorFn, AbstractControl, FormControl } from '@angular/forms';
+import { Validators,   AbstractControl, FormControl } from '@angular/forms';
+
+import { BaseForm } from './../../../shared/class/base.form';
 import { Validation } from '../../../shared/class/business.validation';
 
-export class LoginFormModel extends FormGroup {
+export class LoginFormModel extends BaseForm {
 
     Email = new FormControl('', [Validators.required, Validators.email]);
-    Email2 = new FormControl('', [Validators.required, Validators.email]);
     Password = new FormControl('', [Validators.required, Validators.minLength(4)]);
 
-    constructor(
-        validador?: ValidatorFn,
-        asyncValidator?: AsyncValidatorFn
-    ) {
-        super({}, validador, asyncValidator);
-        this.register();
-    }
-
-    register() {
-        let properties = Object.getOwnPropertyNames(this);
-
-        for (let prop of properties) {
-            var instance = Object.getOwnPropertyDescriptor(this, prop);
-
-            if (instance.value && typeof (instance.value) == 'object')
-                if (instance.value.constructor.name == 'FormControl') {
-                    this.registerControl(prop, instance.value);
-                    console.log(prop);
-                }
-        }
+    constructor() {
+        super();
+        
+        this.registerValidators();
     }
 
     public ValidateLogin(): Validation.BusinessValidation {

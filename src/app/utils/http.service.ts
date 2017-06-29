@@ -18,6 +18,7 @@ export class HttpService {
     get(url: string, params?: RequestOptionsArgs): Observable<any> {
 
         this.onStart();
+        console.log(url);
 
         return this.http.get(url, params)
             .catch(this.callbackException)
@@ -25,10 +26,11 @@ export class HttpService {
             .map((response: Response) =>
                 <any>response.json())
             .do((res: Response) => {
-
+              
             }, (error: any) => {
                 this.callbackError(error);
-            }).finally(() => {
+            })
+            .finally(() => {
                 this.onStop();
             });
     }
