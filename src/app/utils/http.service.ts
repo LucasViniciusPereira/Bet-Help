@@ -18,8 +18,7 @@ export class HttpService {
     get(url: string, params?: RequestOptionsArgs): Observable<any> {
 
         this.onStart();
-        console.log(url);
-
+        
         return this.http.get(url, params)
             .catch(this.callbackException)
             //.delay(5000)
@@ -40,11 +39,6 @@ export class HttpService {
     }
 
     private callbackError(error: any): void {
-        console.log('Error');
-        //   private handleError(error:Response){
-        //     let message = `Error status ${ error.status } na url: ${ error.url }`;
-        //     return Observable.throw(message); 
-        //   };
         return;
     }
 

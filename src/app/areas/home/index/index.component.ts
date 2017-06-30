@@ -1,6 +1,7 @@
 import { Response } from '@angular/http';
 import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
 import { List } from 'linqts';
+import { Observable } from 'rxjs/Rx';
 
 import { JogoModel } from './../../../shared/models/jogo.model';
 import { HomeService } from './../home.service';
@@ -18,14 +19,13 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   constructor(
     private svcHome: HomeService
-  ) {
-  }
+  ) { }
 
   ngOnInit() {
-    console.log('Index component');
+    Observable.timer(1000).subscribe(t =>
+      this.Mock_Jogos()
+    );
 
-    this.Mock_Jogos();
-    
     this.eventDetails.subscribe(function (data) {
       console.log(data);
     })
@@ -33,6 +33,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.eventDetails.unsubscribe();
+
   }
 
   Mock_Jogos() {

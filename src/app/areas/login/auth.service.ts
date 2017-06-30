@@ -1,4 +1,4 @@
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable, EventEmitter, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 
@@ -7,7 +7,11 @@ import { Helper } from './../../utils/helper';
 import { HttpService } from './../../utils/http.service';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements OnDestroy {
+  
+  ngOnDestroy(): void {
+    this.mostrarMenuEmitter.unsubscribe();
+  }
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
@@ -50,7 +54,7 @@ export class AuthService {
 
       this.mostrarMenuEmitter.emit(true);
 
-      this.router.navigate(['/']);
+      return this.router.navigate(['/']);
     }
     else {
       this.mostrarMenuEmitter.emit(false);
@@ -72,7 +76,6 @@ export class AuthService {
   }
 
   getAuthUser(): Observable<UserModel> {
-    console.log('auth user');
     let url = "http://www.mocky.io/v2/5946c6051000007f0ff64eee";
 
     return this.svcHttp.get(url);

@@ -6,7 +6,7 @@
         <span class="title">Iniciar sessão</span>
       </div>
       <div class="panel-body">
-        <form class="col s12" novalidate [formGroup]="FormLogin" (keydown.enter)="!FormLogin.valid ? false : submit() ">
+        <form class="col s12" novalidate [formGroup]="FormLogin">
           <div class="form-group label-floating is-empty">
             <label for="txtemail" class="control-label">
               <!--<i class="material-icons prefix">account_circle</i>-->
