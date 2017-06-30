@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Rx';
 
 import { JogoModel } from './../../../shared/models/jogo.model';
 import { HomeService } from './../home.service';
+declare var $: any;
 
 @Component({
   selector: 'app-home-index',
@@ -27,6 +28,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     );
 
     this.eventDetails.subscribe(function (data) {
+      $('#ModalDetails').modal('show');
       console.log(data);
     })
   }
@@ -41,5 +43,4 @@ export class IndexComponent implements OnInit, OnDestroy {
       (p: List<JogoModel>) => this.listaJogos = p
     );
   }
-
 }
