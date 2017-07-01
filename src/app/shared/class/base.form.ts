@@ -1,7 +1,7 @@
 import { Validators, FormGroup, ValidatorFn, AsyncValidatorFn, AbstractControl, FormControl } from '@angular/forms';
 import { Validation } from '../../shared/class/business.validation';
 
-export class BaseForm extends FormGroup {
+export abstract class BaseForm extends FormGroup {
 
     constructor(
         validador?: ValidatorFn,

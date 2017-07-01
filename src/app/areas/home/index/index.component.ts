@@ -1,5 +1,6 @@
+import { DetailsComponent } from './../details/details.component';
 import { Response } from '@angular/http';
-import { Component, OnInit, EventEmitter, Output, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output, OnDestroy, ViewChild } from '@angular/core';
 import { List } from 'linqts';
 import { Observable } from 'rxjs/Rx';
 
@@ -16,6 +17,9 @@ declare var $: any;
 export class IndexComponent implements OnInit, OnDestroy {
 
   listaJogos: List<JogoModel>;
+  @ViewChild(DetailsComponent) modal: DetailsComponent;
+   
+  //observers
   eventDetails: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -27,15 +31,17 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.Mock_Jogos()
     );
 
-    this.eventDetails.subscribe(function (data) {
-      $('#ModalDetails').modal('show');
-      console.log(data);
-    })
+    this.eventDetails.subscribe((data) => {
+      this.modal.show();
+    });
+
+    // this.eventDetails.subscribe((function(data){
+    //   console.log(data);
+    // }).bind(this));
   }
 
   ngOnDestroy(): void {
     this.eventDetails.unsubscribe();
-
   }
 
   Mock_Jogos() {
