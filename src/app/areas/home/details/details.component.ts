@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit() {
     console.log('init');
+    
   }
 
   ngOnDestroy(){
@@ -25,5 +26,6 @@ export class DetailsComponent implements OnInit {
 
   setData(_data: JogoDetailsModel) {
     this.data = _data;
+    this.formJogoDetails.clearValidators();
   }
 }
