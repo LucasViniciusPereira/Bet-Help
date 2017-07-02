@@ -1,3 +1,4 @@
+import { JogoDetailsModel } from './../../../shared/models/jogo.details.model';
 import { DetailsComponent } from './../details/details.component';
 import { Response } from '@angular/http';
 import { Component, OnInit, EventEmitter, Output, OnDestroy, ViewChild } from '@angular/core';
@@ -17,10 +18,10 @@ declare var $: any;
 export class IndexComponent implements OnInit, OnDestroy {
 
   listaJogos: List<JogoModel>;
-  @ViewChild(DetailsComponent) modal: DetailsComponent;
-   
+
   //observers
   eventDetails: EventEmitter<any> = new EventEmitter();
+  @ViewChild(DetailsComponent) modalDetails: DetailsComponent;
 
   constructor(
     private svcHome: HomeService
@@ -31,13 +32,15 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.Mock_Jogos()
     );
 
-    this.eventDetails.subscribe((data) => {
-      this.modal.show();
+    //Modal Details
+    this.eventDetails.subscribe((parms) => {
+      this.svcHome.getJogo("").subscribe(
+        (data: JogoDetailsModel) => {
+          this.modalDetails.setData(data[0]);
+          $("#modalDetails").modal('show');
+        }
+      );
     });
-
-    // this.eventDetails.subscribe((function(data){
-    //   console.log(data);
-    // }).bind(this));
   }
 
   ngOnDestroy(): void {

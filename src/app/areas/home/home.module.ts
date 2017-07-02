@@ -10,16 +10,13 @@ import { ScoreboardComponent } from './../../shared/components/scoreboard/scoreb
 import { HomeService } from './home.service';
 import { DetailsComponent } from './details/details.component';
 
-import {ModalModule} from 'ng2-bs4-modal/ng2-bs4-modal';
-
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    SharedModule,
-    ModalModule
+    SharedModule
   ],
   declarations: [
     IndexComponent,

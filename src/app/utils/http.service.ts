@@ -21,7 +21,7 @@ export class HttpService {
         
         return this.http.get(url, params)
             .catch(this.callbackException)
-            //.delay(5000)
+            //.delay(50000)
             .map((response: Response) =>
                 <any>response.json())
             .do((res: Response) => {

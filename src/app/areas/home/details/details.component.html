@@ -1,12 +1,50 @@
-<modal #modalHomeDetails>
-    <modal-header>
-        <h4 class="modal-title">I'm a modal!</h4>
-    </modal-header>
-    <modal-body>
-        Hello World!
-    </modal-body>
-    <modal-footer>
-        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancel</button>
-        <button type="button" class="btn btn-primary" (click)="modal.close()">Ok</button>
-    </modal-footer>
-</modal>
+<div class="modal" id="modalDetails" tabindex="-1" data-keyboard="false" role="dialog" data-toggle="modal" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title"> {{ data?.descricao }}</h4>
+            </div>
+            <div class="modal-body">
+
+                <form class="col-xs-12" novalidate [formGroup]="formJogoDetails">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label for="ddlMercados" class="control-label">Escolha o mercado</label>
+                                <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
+                                    <option *ngFor="let item of data?.mercados" [ngValue]="item.mercadoID">
+                                        {{item.descricao}}
+                                    </option>
+                                </select>
+                                <display-validation [control]="formJogoDetails.controls.MercadoID"></display-validation>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="form-group label-floating">
+                                <label for="txtOdds" class="control-label">Odds</label>
+                                <input type="text" class="form-control" id="txtOdds" formControlName="Odds" />
+                                <display-validation [control]="formJogoDetails.controls.Odds"></display-validation>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="form-group label-floating">
+                                <label for="txtValor" class="control-label">Valor</label>
+                                <input type="text" class="form-control" id="txtValor" formControlName="Valor" />
+                                <display-validation [control]="formJogoDetails.controls.Valor"></display-validation>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Gravar</button>
+            </div>
+        </div>
+    </div>
+</div>

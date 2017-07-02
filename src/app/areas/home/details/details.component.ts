@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { BaseModal } from "app/shared/class/base.modal";
+import { JogoDetailsFormModel } from './../models/jogo.details.form.model';
+import { JogoDetailsModel } from './../../../shared/models/jogo.details.model';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-details',
@@ -7,20 +8,18 @@ import { BaseModal } from "app/shared/class/base.modal";
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
-  
-  modalDetails: BaseModal = new BaseModal('modalHomeDetails');
+  data: JogoDetailsModel;
+
+  formJogoDetails: JogoDetailsFormModel =  new JogoDetailsFormModel();
+  //mercadoSelecionado: any;
 
   constructor() { }
 
   ngOnInit() {
+    
   }
 
-  show() {
-    this.modalDetails.openModal();
+  setData(_data: JogoDetailsModel) {
+    this.data = _data;
   }
-
-  hide() {
-    this.modalDetails.closeModal();
-  }
-
 }

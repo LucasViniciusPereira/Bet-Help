@@ -1,25 +1,41 @@
-<table *ngIf="jogos?.length > 0">
-  <thead>
-    <tr>
-      <th>Mandante</th>
-      <th>Visitante</th>
-      <th></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <tr *ngFor="let item of jogos">
-      <td> {{ item.mandante }}</td>
-      <td> {{ item.visitante }}</td>
-      <td *ngFor="let options of controlsEvent">
-        <a (click)="control(item, options)">{{ options.name }}</a>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div class="row text-center scoreboard" *ngFor="let item of jogos">
+  <!--<span>16:00</span>-->
+  <div class="col-xs-11">
+    <div class="col-xs-5 time-mandante">
+      <!--<span>WWWLD</span>
+      <span>3º</span>-->
+      <span class="text-time">{{ item.mandante }}</span>
+    </div>
+    <div class="col-xs-2 resultado">
+      <!--<span class="placar-mandante">1</span>-->
+      <span class="placar">X</span>
+      <!--<span class="placar-visitante">2</span>-->
+    </div>
+    <div class="col-xs-5 time-visitante">
+      <span class="text-time">{{ item.visitante }}</span>
+      <!--<span>1º</span>
+      <span>WWWLD</span>-->
+    </div>
+  </div>
+
+  <div class="col-xs-1">
+    <div class="scoreboard-button">
+      <a href="javascript:void(0)" data-target="#" data-toggle="dropdown">
+        <i class="material-icons md-18">more_vert</i>
+      </a>
+      <ul class="dropdown-menu pull-right">
+        <li *ngFor="let options of controlsEvent">
+          <a href="javascript:void(0)" (click)="control(item, options)">
+              <i class="material-icons md-18">{{ options.icon }}</i>
+              {{ options.name }}
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <div *ngIf="jogos?.length <= 0">
   Não existe jogo Hoje
 </div>
-
-<!--<p>{{ jogos | json }}</p>-->

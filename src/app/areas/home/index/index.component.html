@@ -1,14 +1,12 @@
 <div class="row">
-    <div class="col s12">
-        <div class="card">
-            <div class="card-content">
-                <app-scoreboard [jogos]="listaJogos" [controlsEvent]="[
-                            { name: 'Ver', icon: 'pipes', action: eventDetails }
-                ]">
-                </app-scoreboard>
+    <div class="col-xs-12 col-sm-6 col-md-6">
+        <div class="well infobox">
+            <app-scoreboard [jogos]="listaJogos" [controlsEvent]="[
+                    { name: 'Palpite', icon: 'help_outline', action: eventDetails }
+                    ]">
+            </app-scoreboard>
 
-                <app-home-details></app-home-details>
-            </div>
+            <app-home-details></app-home-details>
         </div>
     </div>
 </div>
