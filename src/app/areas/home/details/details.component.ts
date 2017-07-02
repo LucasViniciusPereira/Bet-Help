@@ -11,12 +11,16 @@ export class DetailsComponent implements OnInit {
   data: JogoDetailsModel;
 
   formJogoDetails: JogoDetailsFormModel =  new JogoDetailsFormModel();
-  //mercadoSelecionado: any;
 
   constructor() { }
 
   ngOnInit() {
+    console.log('init');
+  }
+
+  ngOnDestroy(){
     
+    console.log('destroy');
   }
 
   setData(_data: JogoDetailsModel) {

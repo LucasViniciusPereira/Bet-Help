@@ -22,7 +22,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   //observers
   eventDetails: EventEmitter<any> = new EventEmitter();
   @ViewChild(DetailsComponent) modalDetails: DetailsComponent;
-
+  
   constructor(
     private svcHome: HomeService
   ) { }
@@ -41,6 +41,10 @@ export class IndexComponent implements OnInit, OnDestroy {
         }
       );
     });
+  }
+
+  destroy(){
+    //this.modalDetails.destroy();
   }
 
   ngOnDestroy(): void {

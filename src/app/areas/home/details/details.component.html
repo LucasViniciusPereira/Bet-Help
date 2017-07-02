@@ -10,7 +10,7 @@
                 <form class="col-xs-12" novalidate [formGroup]="formJogoDetails">
                     <div class="row">
                         <div class="col-xs-12">
-                            <div class="form-group">
+                         <div class="form-group label-floating is-empty">
                                 <label for="ddlMercados" class="control-label">Escolha o mercado</label>
                                 <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
                                     <option *ngFor="let item of data?.mercados" [ngValue]="item.mercadoID">
@@ -24,14 +24,14 @@
 
                     <div class="row">
                         <div class="col-xs-6">
-                            <div class="form-group label-floating">
+                            <div class="form-group label-floating is-empty">
                                 <label for="txtOdds" class="control-label">Odds</label>
                                 <input type="text" class="form-control" id="txtOdds" formControlName="Odds" />
                                 <display-validation [control]="formJogoDetails.controls.Odds"></display-validation>
                             </div>
                         </div>
                         <div class="col-xs-6">
-                            <div class="form-group label-floating">
+                            <div class="form-group label-floating is-empty">
                                 <label for="txtValor" class="control-label">Valor</label>
                                 <input type="text" class="form-control" id="txtValor" formControlName="Valor" />
                                 <display-validation [control]="formJogoDetails.controls.Valor"></display-validation>
