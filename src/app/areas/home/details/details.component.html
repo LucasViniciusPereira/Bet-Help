@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-        <h4 class="modal-title"> {{ data?.descricao }}</h4>
+        <!--<h4 class="modal-title"> {{ data?.descricao }}</h4>-->
       </div>
       <div class="modal-body">
 
@@ -13,7 +13,7 @@
               <div class="form-group label-floating is-empty">
                 <label for="ddlMercados" class="control-label">Escolha o mercado</label>
                 <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
-                                    <option *ngFor="let item of data?.mercados" [ngValue]="item.mercadoID">
+                                    <option *ngFor="let item of mercados" [ngValue]="item.mercadoID">
                                         {{item.descricao}}
                                     </option>
                                 </select>

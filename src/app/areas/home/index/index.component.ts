@@ -36,10 +36,13 @@ export class IndexComponent implements OnInit, OnDestroy {
     // Modal Details
     this.eventDetails.subscribe(parms => {
       // buscar jogo
-      this.svcHome.getJogo("").subscribe((data: JogoDetailsModel) => {
+      this.svcHome.getJogo('').subscribe((data: JogoDetailsModel) => {
+
         // Atribuir propriedades
-        this.modalDetails.formJogoDetails.assignProperties(data);
-        $("#modalDetails").modal("show");
+        // this.modalDetails.formJogoDetails.assignProperties(data[0]);
+        // this.modalDetails.assignProperties(data[0]);
+        this.modalDetails.assignProperties(data);
+        $('#modalDetails').modal('show');
       });
     });
   }
