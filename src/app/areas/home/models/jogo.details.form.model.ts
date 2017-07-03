@@ -13,5 +13,5 @@ export class JogoDetailsFormModel extends BaseForm {
         super();
 
         this.registerValidators();
-    }
+    };
 }

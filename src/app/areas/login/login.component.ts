@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   @ValidateException
   public submit() {
-    
+
     var validate = this.FormLogin.ValidateLogin();
 
     if (validate.hasValidation())

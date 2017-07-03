@@ -1,7 +1,6 @@
 
 import { List } from 'linqts';
 import { Observable } from 'rxjs/Rx';
-import { Response } from '@angular/http';
 import { Injectable } from '@angular/core';
 
 import { HttpService } from './../../utils/http.service';
@@ -21,6 +20,8 @@ export class HomeService {
 
   getJogo(params): Observable<JogoDetailsModel>{
     let url = "http://www.mocky.io/v2/59582e981100003f00a6ad56";
+    //let url = "http://www.mocky.io/v2/595a74380f00000a039fe423";
+
 
     return this.svcHttp.get(url);
   }
