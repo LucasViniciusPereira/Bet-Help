@@ -12,9 +12,13 @@ import { GlobalService } from './shared/services/global.service';
 // Componentes
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
 
+// Diretivas
+import { FloatlabelDirective } from './shared/directives/floatlabel.directive';
+
 @NgModule({
   declarations: [
     DisplayValidationComponent,
+    FloatlabelDirective
   ],
   exports: [
     DisplayValidationComponent,

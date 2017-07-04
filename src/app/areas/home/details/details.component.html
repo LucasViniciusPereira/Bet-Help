@@ -13,10 +13,10 @@
               <div class="form-group label-floating is-empty">
                 <label for="ddlMercados" class="control-label">Escolha o mercado</label>
                 <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
-                                    <option *ngFor="let item of mercados" [ngValue]="item.mercadoID">
-                                        {{item.descricao}}
-                                    </option>
-                                </select>
+                    <option *ngFor="let item of mercados" [ngValue]="item.mercadoID">
+                        {{item.descricao}}
+                    </option>
+                </select>
                 <display-validation [control]="formJogoDetails.controls.MercadoID"></display-validation>
               </div>
             </div>

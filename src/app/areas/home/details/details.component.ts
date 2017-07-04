@@ -3,6 +3,7 @@ import { JogoDetailsFormModel } from './../models/jogo.details.form.model';
 import { JogoDetailsModel } from './../../../shared/models/jogo.details.model';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { BaseBusiness } from 'app/shared/class/base.business';
+declare var $: any;
 
 @Component({
   selector: 'app-home-details',
@@ -19,5 +20,6 @@ export class DetailsComponent extends BaseBusiness implements OnInit {
   }
 
   ngOnInit() {
+    console.log( JSON.stringify($.material));
   }
 }

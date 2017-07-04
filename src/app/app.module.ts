@@ -14,6 +14,8 @@ import { NotFoundComponent } from './shared/components/404/404.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
