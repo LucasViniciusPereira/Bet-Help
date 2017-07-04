@@ -1,14 +1,7 @@
 import { JogoDetailsModel } from "./../../../shared/models/jogo.details.model";
 import { DetailsComponent } from "./../details/details.component";
 import { Response } from "@angular/http";
-import {
-  Component,
-  OnInit,
-  EventEmitter,
-  Output,
-  OnDestroy,
-  ViewChild
-} from "@angular/core";
+import { Component, OnInit, EventEmitter, Output, OnDestroy, ViewChild } from "@angular/core";
 import { List } from "linqts";
 import { Observable } from "rxjs/Rx";
 
@@ -21,6 +14,7 @@ declare var $: any;
   templateUrl: "./index.component.html",
   styleUrls: ["./index.component.css"]
 })
+
 export class IndexComponent implements OnInit, OnDestroy {
   listaJogos: List<JogoModel>;
 
@@ -28,7 +22,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   eventDetails: EventEmitter<any> = new EventEmitter();
   @ViewChild(DetailsComponent) modalDetails: DetailsComponent;
 
-  constructor(private svcHome: HomeService) {}
+  constructor(private svcHome: HomeService) { }
 
   ngOnInit() {
     Observable.timer(1000).subscribe(t => this.Mock_Jogos());
@@ -39,7 +33,6 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.svcHome.getJogo('').subscribe((data: JogoDetailsModel) => {
 
         // Atribuir propriedades
-        // this.modalDetails.formJogoDetails.assignProperties(data[0]);
         // this.modalDetails.assignProperties(data[0]);
         this.modalDetails.assignProperties(data);
         $('#modalDetails').modal('show');

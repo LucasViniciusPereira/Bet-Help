@@ -13,18 +13,18 @@ export abstract class BaseForm extends FormGroup {
     super({}, validador, asyncValidator);
   }
 
-  assignProperties(formModel: any) {
-    const controls = Object.getOwnPropertyNames(this.controls);
-    const properties = Object.getOwnPropertyNames(formModel);
+  // assignProperties(formModel: any) {
+  //   const controls = Object.getOwnPropertyNames(this.controls);
+  //   const properties = Object.getOwnPropertyNames(formModel);
 
-    for (const propControls of controls) {
-      for (const prop of properties) {
-        if (propControls === prop) {
-          this.get(propControls).setValue(formModel[prop]);
-        }
-      }
-    }
-  }
+  //   for (const propControls of controls) {
+  //     for (const prop of properties) {
+  //       if (propControls === prop) {
+  //         this.get(propControls).setValue(formModel[prop]);
+  //       }
+  //     }
+  //   }
+  // }
 
   registerValidators() {
     const properties = Object.getOwnPropertyNames(this);
