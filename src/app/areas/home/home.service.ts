@@ -17,9 +17,9 @@ export class HomeService {
     return this.svcHttp.get(url);
   }
 
-  getJogo(params): Observable<JogoDetailsModel>{
-    // let url = "http://www.mocky.io/v2/59582e981100003f00a6ad56";
-    const url = 'http://www.mocky.io/v2/595a74380f00000a039fe423';
+  getJogo(params): Observable<JogoDetailsModel> {
+    const url = 'http://www.mocky.io/v2/59582e981100003f00a6ad56';
+    // const url = 'http://www.mocky.io/v2/595a74380f00000a039fe423';
 
     return this.svcHttp.get(url);
   }
