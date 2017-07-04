@@ -7,7 +7,7 @@ export abstract class HelperMessage {
     static displayLength = 6000;
 
     /** @description Exibe as mensagens amigáveis do sistema
-     * @param {Enumerations.eTypeMessage} typeMessage Enumerador com os tipos de mensagens WARNING | SUCCESS | ERROR | INFO.  
+     * @param {Enumerations.eTypeMessage} typeMessage Enumerador com os tipos de mensagens WARNING | SUCCESS | ERROR | INFO.
      * @param {any[]:message} message Array com as mensagens
      */
     static showMessage(typeMessage: Enumerations.eTypeMessage, message: any[]) {
@@ -53,7 +53,7 @@ export abstract class HelperMessage {
         this.ShowSnackBar(message, 'message-success');
     }
 
-    private static ShowSnackBar(message, className = "1", position = "top-right") {
+    private static ShowSnackBar(message, className = '1', position = 'top-right') {
         Snackbar.show({
             text: message,
             customClass: 'message-error',

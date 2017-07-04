@@ -22,25 +22,27 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.svcAuth.UserIsAuthenticate)
+    if (this.svcAuth.UserIsAuthenticate) {
       this.router.navigate(['/']);
+    }
+
   }
 
   @ValidateException
   public submit() {
+    const validate = this.FormLogin.ValidateLogin();
 
-    var validate = this.FormLogin.ValidateLogin();
-
-    if (validate.hasValidation())
+    if (validate.hasValidation()) {
       return validate;
+    }
 
-    var result = this.svcAuth.Mock_validacaoUsuario(this.FormLogin);
+    const result = this.svcAuth.Mock_validacaoUsuario(this.FormLogin);
 
-    if (result == false) {
+    if (result === false) {
       return Helper.showMessageError('E-mail ou senha invalidos.');
     }
 
-    //Mock => alterar para post API
+    // Mock => alterar para post API
     this.svcAuth.getAuthUser().subscribe(
       user => {
         this.svcAuth.AuthenticationUser(user);

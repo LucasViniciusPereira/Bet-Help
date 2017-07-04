@@ -5,14 +5,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing.module';
 
-// Modulos 
+// Modulos
 import { HomeModule } from './areas/home/home.module';
 import { LoginModule } from './areas/login/login.module';
 
+// Componentes
 import { NotFoundComponent } from './shared/components/404/404.component';
 import { PreloaderComponent } from './shared/components/preloader/preloader.component';
 import { MenuComponent } from './shared/components/menu/menu.component';
-//import { ModalModule } from 'ng2-bs4-modal/ng2-bs4-modal';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     NotFoundComponent,
     MenuComponent
   ],
-   exports:[
+   exports: [
     MenuComponent
   ],
   imports: [
@@ -30,7 +30,6 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-        //ModalModule,
     HomeModule,
     LoginModule
   ],

@@ -18,14 +18,13 @@ export class HttpService {
     get(url: string, params?: RequestOptionsArgs): Observable<any> {
 
         this.onStart();
-        
         return this.http.get(url, params)
             .catch(this.callbackException)
             //.delay(50000)
             .map((response: Response) =>
                 <any>response.json())
             .do((res: Response) => {
-              
+
             }, (error: any) => {
                 this.callbackError(error);
             })

@@ -1,5 +1,5 @@
-import { FormControl } from "@angular/forms";
-import { NgModule } from "@angular/core";
+import { FormControl } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 export abstract class BaseBusiness {
     constructor() { }
@@ -24,7 +24,7 @@ export abstract class BaseBusiness {
 
                 const formControl = Object.getOwnPropertyNames(this[propControls].controls);
 
-                for (let propFormControl of formControl) {
+                for (const propFormControl of formControl) {
                     for (const propModel of properties) {
                         // Atribui as propriedades pelo nome
                         if (propFormControl === propModel) {

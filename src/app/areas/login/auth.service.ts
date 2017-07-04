@@ -8,11 +8,7 @@ import { HttpService } from './../../utils/http.service';
 
 @Injectable()
 export class AuthService implements OnDestroy {
-  
-  ngOnDestroy(): void {
-    this.mostrarMenuEmitter.unsubscribe();
-  }
-
+  tokenName = 'tokenUserApp';
   mostrarMenuEmitter = new EventEmitter<boolean>();
 
   constructor(
@@ -20,10 +16,12 @@ export class AuthService implements OnDestroy {
     private svcHttp: HttpService
   ) { }
 
-  tokenName = "tokenUserApp";
+  ngOnDestroy() {
+    this.mostrarMenuEmitter.unsubscribe();
+  }
 
   CreateTokenUser(userModel: UserModel) {
-    var _token = window.localStorage.getItem(this.tokenName);
+    const _token = window.localStorage.getItem(this.tokenName);
 
     if (_token == null) {
       window.localStorage.setItem(this.tokenName, JSON.stringify(userModel));
@@ -39,7 +37,7 @@ export class AuthService implements OnDestroy {
   }
 
   get UserIsAuthenticate(): boolean {
-    let result = this.getTokenUser() ? true : false;
+    const result = this.getTokenUser() ? true : false;
     this.mostrarMenuEmitter.emit(result);
 
     return result;
@@ -47,16 +45,15 @@ export class AuthService implements OnDestroy {
 
   AuthenticationUser(user: any) {
     if (user) {
-      let token = this.getTokenUser();
+      const token = this.getTokenUser();
 
-      if (token == null || token == "")
+      if (token == null || token === '') {
         this.CreateTokenUser(user);
+      }
 
       this.mostrarMenuEmitter.emit(true);
-
       return this.router.navigate(['/']);
-    }
-    else {
+    } else {
       this.mostrarMenuEmitter.emit(false);
       return Helper.showMessageError('E-mail ou senha invalidos.');
     }
@@ -64,21 +61,21 @@ export class AuthService implements OnDestroy {
 
   LogoutUser() {
     this.DeleteTokenUser();
-    this.UserIsAuthenticate;
+    const result = this.UserIsAuthenticate;
 
     this.router.navigate(['/login']);
   }
 
   Mock_validacaoUsuario(user: any): boolean {
-    if (user.Email.value == "admin@admin.com" && user.Password.value == "a123456")
+    if (user.Email.value === 'admin@admin.com' && user.Password.value === 'a123456') {
       return true;
+    }
     return false;
   }
 
   getAuthUser(): Observable<UserModel> {
-    let url = "http://www.mocky.io/v2/5946c6051000007f0ff64eee";
+    const url = 'http://www.mocky.io/v2/5946c6051000007f0ff64eee';
 
     return this.svcHttp.get(url);
   };
-
 }

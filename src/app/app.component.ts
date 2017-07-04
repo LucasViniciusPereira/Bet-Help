@@ -10,6 +10,4 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
      $.material.init();
   }
-  title = 'app';
-
 }

@@ -1,15 +1,14 @@
 import { PreloaderService } from './preloader.service';
-import { Component, OnInit, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-preloader',
   templateUrl: './preloader.component.html',
   styleUrls: ['./preloader.component.css']
 })
-export class PreloaderComponent implements OnInit {
-
+export class PreloaderComponent implements OnInit, OnDestroy {
   loading = false;
-  //Dispose
+
   private subscription: EventEmitter<Boolean>;
 
   constructor(private svcPreloader: PreloaderService) { }
@@ -23,5 +22,4 @@ export class PreloaderComponent implements OnInit {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-
 }

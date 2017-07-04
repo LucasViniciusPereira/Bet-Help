@@ -23,13 +23,12 @@ import { DetailsComponent } from './details/details.component';
     DetailsComponent,
     ScoreboardComponent,
   ],
-  exports:[
+  exports: [
     IndexComponent,
     DetailsComponent
   ],
-  providers:[
+  providers: [
     HomeService
   ]
-
 })
 export class HomeModule { }

@@ -5,8 +5,7 @@ export class JogoDetailsModel {
     descricao: string;
     mercados: List<Mercados>;
 
-    constructor() {
-    }
+    constructor() { }
 
 }
 

@@ -6,8 +6,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { LoginComponent } from "./login.component";
-import { AuthService } from "./auth.service";
+import { LoginComponent } from './login.component';
+import { AuthService } from './auth.service';
 
 @NgModule({
   imports: [
@@ -20,10 +20,10 @@ import { AuthService } from "./auth.service";
   declarations: [
     LoginComponent,
   ],
-  exports:[
+  exports: [
     LoginComponent
   ],
-  providers:[
+  providers: [
     AuthService
   ]
 
