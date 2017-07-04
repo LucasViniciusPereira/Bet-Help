@@ -20,6 +20,6 @@ export class DetailsComponent extends BaseBusiness implements OnInit {
   }
 
   ngOnInit() {
-    console.log( JSON.stringify($.material));
+
   }
 }
