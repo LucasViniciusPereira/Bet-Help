@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 export abstract class BaseBusiness {
   constructor() { }
 
-  public assignProperties(model: any) {
+  public assignProperties(model: any): void {
     if (model === undefined) {
       return console.log('Model não preenchido');
     }
