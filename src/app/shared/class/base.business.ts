@@ -12,14 +12,6 @@ export abstract class BaseBusiness {
     const controls = Object.getOwnPropertyNames(this);
     const properties = Object.getOwnPropertyNames(model);
 
-    // if (controls.length <= 0) {
-    //   return console.log('Não foi possível localizar as propriedades da classe');
-    // }
-
-    // if (properties.length <= 0) {
-    //   return console.log('Model não preenchido');
-    // }
-
     // Iteração com as propriedades
     for (const propControls of controls) {
 

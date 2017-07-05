@@ -15,6 +15,9 @@ import * as _ from 'underscore';
 export class DetailsComponent extends BaseBusiness implements OnInit {
 
   formJogoDetails: JogoDetailsFormModel = new JogoDetailsFormModel();
+
+  formJogoDetails2: JogoDetailsFormModel = new JogoDetailsFormModel();
+
   mercados: Array<any> = new Array<any>();
   lstPalpites: Array<any> = new Array<any>();
 
@@ -23,10 +26,11 @@ export class DetailsComponent extends BaseBusiness implements OnInit {
   }
 
   ngOnInit() {
+    console.log('modal - inti');
   }
 
   adicionar(element: any) {
-    element.Mercado = _.where(this.mercados, {mercadoID: '1' })[0].descricao;
+    element.Mercado = _.where(this.mercados, { mercadoID: '1' })[0].descricao;
 
     this.lstPalpites.push(element);
     this.formJogoDetails.reset();
