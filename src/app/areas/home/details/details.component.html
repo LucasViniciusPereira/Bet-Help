@@ -10,7 +10,7 @@
         <form class="col-xs-12" novalidate [formGroup]="formJogoDetails">
 
           <div class="row">
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="ddlMercados" class="control-label">Escolha o mercado</label>
                 <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
@@ -22,18 +22,26 @@
               </div>
             </div>
 
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="txtOdds" class="control-label">Odds</label>
                 <input type="text" class="form-control" id="txtOdds" formControlName="Odds" />
                 <display-validation [control]="formJogoDetails.controls.Odds"></display-validation>
               </div>
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="txtValor" class="control-label">Valor</label>
                 <input type="text" class="form-control" id="txtValor" formControlName="Valor" />
                 <display-validation [control]="formJogoDetails.controls.Valor"></display-validation>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="pull-right">
+                <button class="btn btn-primary pull-right" [disabled]="!formJogoDetails.valid" (click)="adicionar(formJogoDetails.value)">Adicionar</button>
               </div>
             </div>
           </div>
@@ -45,34 +53,36 @@
             <fieldset>
               <legend>Lista de palpites</legend>
 
-              <table class="table table-striped table-hover ">
+              <table class="table table-striped table-hover" *ngIf="lstPalpites.length > 0">
                 <thead>
                   <tr>
-                    <th>#</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
+                    <th>Mercado</th>
+                    <th>Odds</th>
+                    <th>Valor</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let item of lstPalpites">
                   <tr>
-                    <td>1</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
+                    <td> {{ item.Mercado }}</td>
+                    <td> {{ item.Odds }}</td>
+                    <td> {{ item.Valor }}</td>
                   </tr>
                 </tbody>
               </table>
+
+              <div *ngIf="lstPalpites.length <= 0">
+                <div class="alert alert-dismissible alert-default">
+                  <span><strong>Não</strong> existe nenhum palpite para este jogo.</span>
+                </div>
+              </div>
             </fieldset>
           </div>
         </div>
-
-        {{ formJogoDetails.value | json }}
-
+        <!--{{lstPalpites | json}} {{ formJogoDetails.value | json }}-->
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
-        <button type="button" class="btn btn-primary">Gravar</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="material-icons">clear</i>&nbsp;Fechar</button>
+        <button type="button" class="btn btn-primary" [disabled]="lstPalpites.length <= 0"><i class="material-icons">done</i>&nbsp;Gravar</button>
       </div>
     </div>
   </div>

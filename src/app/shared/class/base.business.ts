@@ -12,13 +12,13 @@ export abstract class BaseBusiness {
     const controls = Object.getOwnPropertyNames(this);
     const properties = Object.getOwnPropertyNames(model);
 
-    if (controls.length <= 0) {
-      return console.log('Não foi possível localizar as propriedades da classe');
-    }
+    // if (controls.length <= 0) {
+    //   return console.log('Não foi possível localizar as propriedades da classe');
+    // }
 
-    if (properties.length <= 0) {
-      return console.log('Model não preenchido');
-    }
+    // if (properties.length <= 0) {
+    //   return console.log('Model não preenchido');
+    // }
 
     // Iteração com as propriedades
     for (const propControls of controls) {
@@ -26,6 +26,11 @@ export abstract class BaseBusiness {
       // Propriedades formControl
       if (this[propControls].controls && typeof this[propControls].controls === 'object') {
 
+        // Limpando o formControl
+        this[propControls].reset();
+        this[propControls].clearValidators();
+
+        // this.modalDetails.formJogoDetails.reset();
         const formControl = Object.getOwnPropertyNames(this[propControls].controls);
 
         for (const propFormControl of formControl) {
@@ -36,12 +41,18 @@ export abstract class BaseBusiness {
             }
           }
         }
-      }
+      } else {
 
-      // Propriedades comuns
-      for (const prop of properties) {
-        if (propControls === prop) {
-          this[propControls] = model[prop];
+        // Limpar valores Array
+        if (this[propControls].constructor.name === 'Array') {
+          this[propControls] = new Array<any>();
+        }
+
+        // Propriedades comuns
+        for (const prop of properties) {
+          if (propControls === prop) {
+            this[propControls] = model[prop];
+          }
         }
       }
     }
