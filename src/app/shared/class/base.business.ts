@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { NgModule } from '@angular/core';
 
 export abstract class BaseBusiness {
@@ -22,7 +22,18 @@ export abstract class BaseBusiness {
         this[propControls].reset();
         this[propControls].clearValidators();
 
-        // this.modalDetails.formJogoDetails.reset();
+        // Verifica propriedades complexas
+        const allproperties = Object.getOwnPropertyNames(this[propControls]);
+        for (const item of allproperties) {
+
+          const isFormGroup = <FormGroup>this[propControls][item];
+          if (isFormGroup && isFormGroup.controls) {
+            console.log(this[propControls][item]);
+            this[propControls][item].atribuir(model[item])
+          }
+        }
+
+        // Verifica propriedades simples
         const formControl = Object.getOwnPropertyNames(this[propControls].controls);
 
         for (const propFormControl of formControl) {

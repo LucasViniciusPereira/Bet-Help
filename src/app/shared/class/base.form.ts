@@ -6,6 +6,22 @@ export abstract class BaseForm extends FormGroup {
     super({}, validador, asyncValidator);
   }
 
+  atribuir(model: any): void {
+
+    const controls = Object.getOwnPropertyNames(this.controls);
+    const properties = Object.getOwnPropertyNames(model);
+
+    // Iteração com as propriedades
+    for (const propControls of controls) {
+      for (const propModel of properties) {
+        // Atribui as propriedades pelo nome
+        if (propControls === propModel) {
+          this[propControls].setValue(model[propModel]);
+        }
+      }
+    }
+  }
+
   registerValidators() {
     const properties = Object.getOwnPropertyNames(this);
 

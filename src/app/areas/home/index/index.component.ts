@@ -33,8 +33,17 @@ export class IndexComponent implements OnInit, OnDestroy {
       this.svcHome.getJogo('').subscribe((data: JogoDetailsModel) => {
 
         // Atribuir propriedades
-        this.modalDetails.assignProperties(data[0]);
+        // this.modalDetails.assignProperties(data[0]);
         // this.modalDetails.assignProperties(data);
+
+        this.modalDetails.assignProperties({
+          MercadoID: 1, Odds: 2, Valor: 3,
+            Endereco:
+              { EnderecoID: 11, Descricao: 'teste',
+                Bairro:
+                  { BairroID: 227, Casa: 'Minha Casa' }
+              }
+        });
         $('#modalDetails').modal('show');
       });
     });
