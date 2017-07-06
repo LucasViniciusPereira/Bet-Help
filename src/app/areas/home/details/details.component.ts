@@ -1,3 +1,4 @@
+import { FormBuilder } from '@angular/forms';
 import { element } from 'protractor';
 import { List } from 'linqts';
 import { JogoDetailsFormModel } from './../models/jogo.details.form.model';
@@ -14,12 +15,12 @@ import * as _ from 'underscore';
 })
 export class DetailsComponent extends BaseBusiness implements OnInit {
 
-  formJogoDetails: JogoDetailsFormModel = new JogoDetailsFormModel();
+  formJogoDetails = this.fb.group(new JogoDetailsFormModel(this.fb));
 
   mercados: Array<any> = new Array<any>();
   lstPalpites: Array<any> = new Array<any>();
 
-  constructor() {
+  constructor(private fb: FormBuilder ) {
     super()
   }
 

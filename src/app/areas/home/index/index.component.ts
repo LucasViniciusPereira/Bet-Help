@@ -36,7 +36,7 @@ export class IndexComponent implements OnInit, OnDestroy {
         // this.modalDetails.formJogoDetails.setValue(data[0]);
         // this.modalDetails.assignProperties(data);
 
-        this.modalDetails.formJogoDetails.setValue({
+        this.modalDetails.formJogoDetails.patchValue({
           MercadoID: 1, Odds: 2, Valor: 3,
             Endereco:
               { EnderecoID: 11, Descricao: 'teste',

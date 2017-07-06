@@ -1,41 +1,31 @@
+import { FormBuilder } from '@angular/forms/src/form_builder';
 import { BaseBusiness } from 'app/shared/class/base.business';
 import { Validators, FormControl } from '@angular/forms';
 
 import { BaseForm } from './../../../shared/class/base.form';
 import { Validation } from '../../../shared/class/business.validation';
 
-export class JogoDetailsFormModel extends BaseForm {
+export class JogoDetailsFormModel {
 
-  MercadoID = new FormControl('', [Validators.required]);
-  Odds = new FormControl('', [Validators.required]);
-  Valor = new FormControl('', [Validators.required]);
+  MercadoID = [null, Validators.required];
+  Odds = [null, Validators.required];
+  Valor = [null, Validators.required];
 
-  Endereco: EnderecoModel = new EnderecoModel();
+  Endereco = this.fb.group(new EnderecoModel());
 
-  constructor() {
-    super();
+  constructor(private fb: FormBuilder) {
+     // super();
 
-    this.registerValidators();
+    // this.registerValidators();
   };
 }
 
-export class EnderecoModel extends BaseForm {
-  EnderecoID = new FormControl('', [Validators.required]);
-  Descricao = new FormControl('', [Validators.required]);
+export class EnderecoModel {
+  EnderecoID = [null, Validators.required];
+  Descricao = [null, Validators.required];
 
-  // Bairro: BairroModel = new BairroModel();
   constructor() {
-    super();
-    this.registerValidators();
+    // super();
+    // this.registerValidators();
   };
 }
-
-// export class BairroModel extends BaseForm {
-//   BairroID = new FormControl('', [Validators.required]);
-//   Casa = new FormControl('', [Validators.required]);
-
-//   constructor() {
-//     super();
-//     this.registerValidators();
-//   };
-// }
