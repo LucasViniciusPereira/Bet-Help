@@ -23,20 +23,19 @@ export class EnderecoModel extends BaseForm {
   EnderecoID = new FormControl('', [Validators.required]);
   Descricao = new FormControl('', [Validators.required]);
 
-
-  Bairro: BairroModel = new BairroModel();
+  // Bairro: BairroModel = new BairroModel();
   constructor() {
     super();
     this.registerValidators();
   };
 }
 
-export class BairroModel extends BaseForm {
-  BairroID = new FormControl('', [Validators.required]);
-  Casa = new FormControl('', [Validators.required]);
+// export class BairroModel extends BaseForm {
+//   BairroID = new FormControl('', [Validators.required]);
+//   Casa = new FormControl('', [Validators.required]);
 
-  constructor() {
-    super();
-    this.registerValidators();
-  };
-}
+//   constructor() {
+//     super();
+//     this.registerValidators();
+//   };
+// }
