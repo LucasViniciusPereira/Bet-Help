@@ -12,28 +12,27 @@
           <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
-                <label for="ddlMercados" class="control-label">Escolha o mercado</label>
-                <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
-                    <option *ngFor="let item of lstMarket" [ngValue]="item.mercadoID">
-                        {{item.descricao}}
+                <label for="ddlMarket" class="control-label">Escolha o mercado</label>
+                <select id="ddlMarket" class="form-control" type="number" formControlName="MarketID">
+                    <option *ngFor="let item of lstMarket" [ngValue]="item.MarketID">
+                        {{item.Description}}
                     </option>
                 </select>
-                <display-validation [control]="tipModel.controls.MercadoID"></display-validation>
+                <display-validation [control]="tipModel.controls.MarketID"></display-validation>
               </div>
             </div>
-
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="txtOdds" class="control-label">Odds</label>
-                <input type="text" class="form-control" id="txtOdds" formControlName="Odds" />
+                <input id="txtOdds" type="text" class="form-control" formControlName="Odds" />
                 <display-validation [control]="tipModel.controls.Odds"></display-validation>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
-                <label for="txtValor" class="control-label">Valor</label>
-                <input type="text" class="form-control" id="txtValor" formControlName="Valor" />
-                <display-validation [control]="tipModel.controls.Valor"></display-validation>
+                <label for="txtValue" class="control-label">Valor</label>
+                <input type="text" class="form-control" id="txtValue" formControlName="Value" />
+                <display-validation [control]="tipModel.controls.Value"></display-validation>
               </div>
             </div>
           </div>
@@ -53,7 +52,7 @@
             <fieldset>
               <legend>Lista de palpites</legend>
 
-              <table class="table table-striped table-hover" *ngIf="lstTips.length > 0">
+              <table class="table table-striped table-hover" *ngIf="lstTips?.length > 0">
                 <thead>
                   <tr>
                     <th>Mercado</th>
@@ -63,14 +62,14 @@
                 </thead>
                 <tbody *ngFor="let item of lstTips">
                   <tr>
-                    <td> {{ item.Mercado }}</td>
+                    <td> {{ item.Market }}</td>
                     <td> {{ item.Odds }}</td>
                     <td> {{ item.Valor }}</td>
                   </tr>
                 </tbody>
               </table>
 
-              <div *ngIf="lstTips.length <= 0">
+              <div *ngIf="lstTips?.length <= 0">
                 <div class="alert alert-dismissible alert-default">
                   <span><strong>Não</strong> existe nenhum palpite para este jogo.</span>
                 </div>
@@ -83,7 +82,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="material-icons">clear</i>&nbsp;Fechar</button>
-        <button type="button" class="btn btn-primary" [disabled]="lstTips.length <= 0"><i class="material-icons">done</i>&nbsp;Gravar</button>
+        <button type="button" class="btn btn-primary" [disabled]="lstTips?.length <= 0"><i class="material-icons">done</i>&nbsp;Gravar</button>
       </div>
     </div>
   </div>

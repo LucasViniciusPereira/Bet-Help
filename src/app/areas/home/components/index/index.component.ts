@@ -15,7 +15,7 @@ declare var $: any;
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit, OnDestroy {
-  lstGames = new Array<GameModel>();
+  lstGames: Array<any> = new Array<any>();
 
   // Observers
   EVENT_MODAL_TIP = new EventEmitter();
@@ -33,13 +33,11 @@ export class IndexComponent implements OnInit, OnDestroy {
     this.EVENT_MODAL_TIP.subscribe(p => {
 
       // Loader game
-      this.svcHome.getJogo('').subscribe((data: TipListModel) => {
-
-        console.log(data);
+      this.svcHome.getGame('').subscribe((data: TipListModel) => {
         // Atribuir propriedades
-        this.modalTip.tipModel.patchValue(null);
+        this.modalTip.tipModel.patchValue(data[0]);
 
-        $('#modalTip').modal('show');
+        $('#modalTips').modal('show');
       });
     });
   }
@@ -50,8 +48,10 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   private Mock_Games() {
     this.svcHome
-      .getJogosDia()
-      .subscribe((p: Array<GameModel>) => (this.lstGames = p));
+      .getGamesOfDays()
+      .subscribe((p: Array<GameModel>) => {
+        this.lstGames = p;
+      });
   }
 
 }

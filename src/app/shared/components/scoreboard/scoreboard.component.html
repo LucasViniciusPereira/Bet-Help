@@ -1,11 +1,11 @@
 
-<div class="row text-center scoreboard" *ngFor="let item of jogos">
+<div class="row text-center scoreboard" *ngFor="let item of games">
   <!--<span>16:00</span>-->
   <div class="col-xs-11">
     <div class="col-xs-5 time-mandante">
       <!--<span>WWWLD</span>
       <span>3º</span>-->
-      <span class="text-time">{{ item.mandante }}</span>
+      <span class="text-time">{{ item.TeamPrincipal }}</span>
     </div>
     <div class="col-xs-2 resultado">
       <!--<span class="placar-mandante">1</span>-->
@@ -13,7 +13,7 @@
       <!--<span class="placar-visitante">2</span>-->
     </div>
     <div class="col-xs-5 time-visitante">
-      <span class="text-time">{{ item.visitante }}</span>
+      <span class="text-time">{{ item.TeamVisitor }}</span>
       <!--<span>1º</span>
       <span>WWWLD</span>-->
     </div>
@@ -28,7 +28,7 @@
         <li *ngFor="let options of controlsEvent">
           <a href="javascript:void(0)" (click)="control(item, options)">
               <i class="material-icons md-18">{{ options.icon }}</i>
-              {{ options.name }}
+              <span>{{ options.name }}</span>
           </a>
         </li>
       </ul>
@@ -36,6 +36,6 @@
   </div>
 </div>
 
-<div *ngIf="jogos?.length <= 0">
+<div *ngIf="games?.length <= 0">
   Não existe jogo Hoje
 </div>

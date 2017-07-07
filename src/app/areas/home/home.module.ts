@@ -25,7 +25,8 @@ import { TipComponent } from './components/tip/tip.component';
     TipComponent,
   ],
   exports: [
-    IndexComponent
+    IndexComponent,
+    TipComponent
   ],
   providers: [
     HomeService

@@ -1,5 +1,6 @@
+import { TipListModel } from './../../models/tip/tip.list.model';
 import { TipModel } from './../../models/tip/tip.model';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 declare var $: any;
@@ -13,7 +14,8 @@ import * as _ from 'underscore';
 export class TipComponent implements OnInit {
 
   tipModel = this.fb.group(new TipModel(this.fb));
-  lstMarket = Array;
+  lstMarket = new Array<TipListModel>();
+  lstTips: Array<any> = new Array<any>();
 
   constructor(
     private fb: FormBuilder

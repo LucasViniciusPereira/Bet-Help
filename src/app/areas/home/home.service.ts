@@ -11,14 +11,14 @@ export class HomeService {
 
   constructor(private svcHttp: HttpService) { }
 
-  getJogosDia(): Observable<Array<GameModel>> {
-    const url = 'http://www.mocky.io/v2/594e91ba1100000720d6d3dc';
+  getGamesOfDays(): Observable<Array<GameModel>> {
+    const url = 'http://www.mocky.io/v2/595ed4690f000059000eaaf6';
 
     return this.svcHttp.get(url);
   }
 
-  getJogo(params): Observable<TipListModel> {
-    const url = 'http://www.mocky.io/v2/59582e981100003f00a6ad56';
+  getGame(params): Observable<TipListModel> {
+    const url = 'http://www.mocky.io/v2/595edc380f00004d000eaafb';
     // const url = 'http://www.mocky.io/v2/595a74380f00000a039fe423';
 
     return this.svcHttp.get(url);

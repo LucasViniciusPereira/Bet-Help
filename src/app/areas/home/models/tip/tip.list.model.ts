@@ -1,7 +1,7 @@
 export class TipListModel {
 
   Description: string;
-  LstMarket: Array<Market>;
+  lstMarket: Array<Market>;
 
   constructor() { }
 }
