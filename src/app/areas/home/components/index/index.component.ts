@@ -7,6 +7,7 @@ import { HomeService } from './../../home.service';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
 
 import { TipListModel } from './../../models/tip/tip.list.model';
+import { HelperMessage } from "app/utils/_helpers/helper.message";
 declare var $: any;
 
 @Component({
@@ -35,7 +36,10 @@ export class IndexComponent implements OnInit, OnDestroy {
       // Loader game
       this.svcHome.getGame('').subscribe((data: TipListModel) => {
         // Atribuir propriedades
-        this.modalTip.tipModel.patchValue(data[0]);
+        // this.modalTip.tipModel.patchValue(data[0]);
+        data[0].tipModel = { MarketID: 1, Odds: 10 };
+        // console.log(data[0]);
+        this.modalTip.assignProperties(data[0]);
 
         $('#modalTips').modal('show');
       });
