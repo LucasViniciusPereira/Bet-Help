@@ -6,25 +6,24 @@
         <!--<legend>Jogos do dia</legend>-->
         <h3>Jogos do dia</h3>
 
-        <app-scoreboard [jogos]="listaJogos" [controlsEvent]="[
-                    { name: 'Palpite', icon: 'help_outline', action: eventDetails }
+        <app-scoreboard [games]="lstGames" [controlsEvent]="[
+                    { name: 'Palpite', icon: 'help_outline', action: EVENT_MODAL_TIP }
                     ]">
         </app-scoreboard>
 
-        <app-home-details></app-home-details>
+        <!--<app-home-details></app-home-details>-->
       </fieldset>
     </div>
   </div>
 
-  <div class="col-xs-12 col-sm-6 col-md-6">
+  <!--<div class="col-xs-12 col-sm-6 col-md-6">
     <div class="well infobox">
       <fieldset>
-        <!--<legend>Jogos do dia</legend>-->
         <h3>Palpites</h3>
 
 
       </fieldset>
     </div>
-  </div>
+  </div>-->
 
 </div>

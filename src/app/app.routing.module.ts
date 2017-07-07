@@ -4,7 +4,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './areas/login/login.component';
-import { IndexComponent } from './areas/home/index/index.component';
+import { IndexComponent } from './areas/home/components/index/index.component';
 import { NotFoundComponent } from './shared/components/404/404.component';
 
 const appRoutes: Routes = [

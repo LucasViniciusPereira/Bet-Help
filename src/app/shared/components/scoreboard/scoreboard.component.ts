@@ -1,6 +1,6 @@
+import { GameModel } from './../../models/game/game.model';
 import { Component, OnInit, Input } from '@angular/core';
 
-import { JogoModel } from './../../models/jogo.model';
 import { List } from 'linqts';
 
 @Component({
@@ -10,7 +10,7 @@ import { List } from 'linqts';
 })
 export class ScoreboardComponent implements OnInit {
 
-  @Input() jogos: List<JogoModel>;
+  @Input() games: Array<GameModel>;
   @Input() controlsEvent: List<any>;
 
   constructor() { }
@@ -18,7 +18,7 @@ export class ScoreboardComponent implements OnInit {
   ngOnInit() {
   }
 
-  control(item: JogoModel, control) {
+  control(item: GameModel, control) {
     control.action.emit(item);
   }
 }

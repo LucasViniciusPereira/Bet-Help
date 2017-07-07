@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 export class DisplayValidationService {
     public getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
 
-        let config = {
+        const config = {
             'required': 'Este campo é obrigatório',
             'email': 'E-mail inválido',
             'invalidPassword': 'Senha inválida, Password must be at least 6 characters long, and contain a number',

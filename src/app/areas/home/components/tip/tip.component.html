@@ -1,4 +1,4 @@
-<div class="modal" id="modalDetails" tabindex="-1" data-keyboard="false" role="dialog" data-toggle="modal" data-backdrop="static">
+<div class="modal" id="modalTips" tabindex="-1" data-keyboard="false" role="dialog" data-toggle="modal" data-backdrop="static">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,18 +7,18 @@
       </div>
       <div class="modal-body">
 
-        <form class="col-xs-12" novalidate [formGroup]="formJogoDetails">
+        <form class="col-xs-12" novalidate [formGroup]="tipModel">
 
           <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="ddlMercados" class="control-label">Escolha o mercado</label>
                 <select id="ddlMercados" class="form-control" type="number" formControlName="MercadoID">
-                    <option *ngFor="let item of mercados" [ngValue]="item.mercadoID">
+                    <option *ngFor="let item of lstMarket" [ngValue]="item.mercadoID">
                         {{item.descricao}}
                     </option>
                 </select>
-                <display-validation [control]="formJogoDetails.controls.MercadoID"></display-validation>
+                <display-validation [control]="tipModel.controls.MercadoID"></display-validation>
               </div>
             </div>
 
@@ -26,14 +26,14 @@
               <div class="form-group">
                 <label for="txtOdds" class="control-label">Odds</label>
                 <input type="text" class="form-control" id="txtOdds" formControlName="Odds" />
-                <display-validation [control]="formJogoDetails.controls.Odds"></display-validation>
+                <display-validation [control]="tipModel.controls.Odds"></display-validation>
               </div>
             </div>
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="txtValor" class="control-label">Valor</label>
                 <input type="text" class="form-control" id="txtValor" formControlName="Valor" />
-                <display-validation [control]="formJogoDetails.controls.Valor"></display-validation>
+                <display-validation [control]="tipModel.controls.Valor"></display-validation>
               </div>
             </div>
           </div>
@@ -41,8 +41,7 @@
           <div class="row">
             <div class="col-xs-12">
               <div class="pull-right">
-                <!--<button class="btn btn-primary pull-right" [disabled]="!formJogoDetails.valid" (click)="adicionar(formJogoDetails.value)">Adicionar</button>-->
-                 <button class="btn btn-primary pull-right" (click)="adicionar(formJogoDetails.value)">Adicionar</button>
+                <button class="btn btn-primary pull-right" [disabled]="!tipModel.valid" (click)="addTip(tipModel.value)">Adicionar</button>
               </div>
             </div>
           </div>
@@ -54,7 +53,7 @@
             <fieldset>
               <legend>Lista de palpites</legend>
 
-              <table class="table table-striped table-hover" *ngIf="lstPalpites.length > 0">
+              <table class="table table-striped table-hover" *ngIf="lstTips.length > 0">
                 <thead>
                   <tr>
                     <th>Mercado</th>
@@ -62,7 +61,7 @@
                     <th>Valor</th>
                   </tr>
                 </thead>
-                <tbody *ngFor="let item of lstPalpites">
+                <tbody *ngFor="let item of lstTips">
                   <tr>
                     <td> {{ item.Mercado }}</td>
                     <td> {{ item.Odds }}</td>
@@ -71,7 +70,7 @@
                 </tbody>
               </table>
 
-              <div *ngIf="lstPalpites.length <= 0">
+              <div *ngIf="lstTips.length <= 0">
                 <div class="alert alert-dismissible alert-default">
                   <span><strong>Não</strong> existe nenhum palpite para este jogo.</span>
                 </div>
@@ -80,11 +79,11 @@
           </div>
         </div>
         <!--{{lstPalpites | json}}-->
-        {{ formJogoDetails.value | json }}
+        {{ tipModel.value | json }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="material-icons">clear</i>&nbsp;Fechar</button>
-        <button type="button" class="btn btn-primary" [disabled]="lstPalpites.length <= 0"><i class="material-icons">done</i>&nbsp;Gravar</button>
+        <button type="button" class="btn btn-primary" [disabled]="lstTips.length <= 0"><i class="material-icons">done</i>&nbsp;Gravar</button>
       </div>
     </div>
   </div>

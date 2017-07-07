@@ -1,3 +1,4 @@
+
 import { SharedModule } from './../../shared.module';
 import { AppComponent } from './../../app.component';
 import { CommonModule } from '@angular/common';
@@ -5,10 +6,10 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { IndexComponent } from './index/index.component';
 import { ScoreboardComponent } from './../../shared/components/scoreboard/scoreboard.component';
 import { HomeService } from './home.service';
-import { DetailsComponent } from './details/details.component';
+import { IndexComponent } from './components/index/index.component';
+import { TipComponent } from './components/tip/tip.component';
 
 @NgModule({
   imports: [
@@ -20,12 +21,11 @@ import { DetailsComponent } from './details/details.component';
   ],
   declarations: [
     IndexComponent,
-    DetailsComponent,
     ScoreboardComponent,
+    TipComponent,
   ],
   exports: [
-    IndexComponent,
-    DetailsComponent
+    IndexComponent
   ],
   providers: [
     HomeService
