@@ -1,3 +1,4 @@
+import { EventComponent } from './../event/event.component';
 import { GameModel } from './../../../../shared/models/game/game.model';
 import { TipModel } from './../../models/tip/tip.model';
 
@@ -20,7 +21,9 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   // Observers
   EVENT_MODAL_TIP = new EventEmitter();
+
   @ViewChild(TipComponent) modalTip: TipComponent;
+  @ViewChild(EventComponent) modalEvent: EventComponent;
 
   constructor(
     private svcHome: HomeService
@@ -30,7 +33,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     // Delay loader games
     Observable.timer(1000).subscribe(p => this.Mock_Games());
 
-    // Event Modal Details
+    // Event Modal TIPS
     this.EVENT_MODAL_TIP.subscribe(p => {
 
       // Loader game
@@ -44,6 +47,15 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.EVENT_MODAL_TIP.unsubscribe();
+  }
+
+  newEvent() {
+    // Loader new event
+    this.svcHome.getNewEvent().subscribe((data: any) => {
+      // Atribuir propriedades
+      this.modalEvent.assignProperties(data[0]);
+      $('#modalEvent').modal('show');
+    });
   }
 
   private Mock_Games() {

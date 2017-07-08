@@ -23,4 +23,10 @@ export class HomeService {
 
     return this.svcHttp.get(url);
   }
+
+  getNewEvent() {
+    const url = 'http://www.mocky.io/v2/595ed4690f000059000eaaf6';
+
+    return this.svcHttp.get(url);
+  }
 }
