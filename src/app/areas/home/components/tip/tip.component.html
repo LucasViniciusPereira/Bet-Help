@@ -8,7 +8,7 @@
       <div class="modal-body">
 
         <form class="col-xs-12" novalidate [formGroup]="tipModel">
-{{lstMarket | json}}
+
           <div class="row">
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
@@ -64,7 +64,7 @@
                   <tr>
                     <td> {{ item.Market }}</td>
                     <td> {{ item.Odds }}</td>
-                    <td> {{ item.Valor }}</td>
+                    <td> {{ item.Value }}</td>
                   </tr>
                 </tbody>
               </table>
@@ -77,8 +77,6 @@
             </fieldset>
           </div>
         </div>
-        <!--{{lstPalpites | json}}-->
-        {{ tipModel.value | json }}
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal"><i class="material-icons">clear</i>&nbsp;Fechar</button>

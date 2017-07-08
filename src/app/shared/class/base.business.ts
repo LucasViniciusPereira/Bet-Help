@@ -16,11 +16,9 @@ export abstract class BaseBusiness {
     for (const propControls of controls) {
       // Propriedades do FormGroup
       if (this[propControls] instanceof FormGroup) {
-        for (const item of controls) {
+        for (const item of properties) {
           if (item === propControls) {
-
-            // this[propControls].patchValue(model[item]);
-            console.log(model[item]);
+            this[propControls].patchValue(model[item]);
           }
         }
       } else {
@@ -37,50 +35,6 @@ export abstract class BaseBusiness {
           }
         }
       }
-
-      // Propriedades formControl
-      // if (this[propControls].controls && typeof this[propControls].controls === 'object') {
-
-      //   // Limpando o formControl
-      //   this[propControls].reset();
-      //   this[propControls].clearValidators();
-
-      //   // Verifica propriedades complexas
-      //   const allproperties = Object.getOwnPropertyNames(this[propControls]);
-      //   for (const item of allproperties) {
-
-      //     const isFormGroup = <FormGroup>this[propControls][item];
-      //     if (isFormGroup && isFormGroup.controls) {
-      //       console.log(this[propControls][item]);
-      //       this[propControls][item].atribuir(model[item])
-      //     }
-      //   }
-
-      // Verifica propriedades simples
-      // const formControl = Object.getOwnPropertyNames(this[propControls].controls);
-
-      // for (const propFormControl of formControl) {
-      //   for (const propModel of properties) {
-      //     // Atribui as propriedades pelo nome
-      //     if (propFormControl === propModel) {
-      //       this[propControls].get(propFormControl).setValue(model[propModel]);
-      //     }
-      //   }
-      // }
-      // } else {
-
-      // Limpar valores Array
-      // if (this[propControls].constructor.name === 'Array') {
-      //   this[propControls] = new Array<any>();
-      // }
-
-      // // Propriedades comuns
-      // for (const prop of properties) {
-      //   if (propControls === prop) {
-      //     this[propControls] = model[prop];
-      //   }
-      // }
-      // }
     }
   }
 }

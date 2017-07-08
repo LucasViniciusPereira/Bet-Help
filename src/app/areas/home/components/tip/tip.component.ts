@@ -15,8 +15,6 @@ import { BaseBusiness } from './../../../../shared/class/base.business';
 export class TipComponent extends BaseBusiness implements OnInit {
 
   tipModel = this.fb.group(new TipModel(this.fb));
-  tipModel2 = this.fb.group(new TipModel(this.fb));
-
 
   lstMarket = new Array<TipListModel>();
   lstTips: Array<any> = new Array<any>();
@@ -31,12 +29,10 @@ export class TipComponent extends BaseBusiness implements OnInit {
   }
 
   addTip(element: any) {
-    console.log(this.tipModel);
+    element.Market = _.where(this.lstMarket, { MarketID: element.MarketID })[0].Description;
 
-    // element.Mercado = _.where(this.mercados, { mercadoID: '1' })[0].descricao;
-
-    // this.lstPalpites.push(element);
-    // this.formJogoDetails.reset();
-    // this.formJogoDetails.clearValidators();
+    this.lstTips.push(element);
+    this.tipModel.reset();
+    this.tipModel.clearValidators();
   }
 }
