@@ -18,6 +18,7 @@ declare var $: any;
 })
 export class IndexComponent implements OnInit, OnDestroy {
   lstGames: Array<any> = new Array<any>();
+  lstTipsOfDays: Array<any> = new Array<any>();
 
   // Observers
   EVENT_MODAL_TIP = new EventEmitter();
@@ -33,9 +34,11 @@ export class IndexComponent implements OnInit, OnDestroy {
     // Delay loader games
     Observable.timer(1000).subscribe(p => this.Mock_Games());
 
+    // Delay loader tips
+    Observable.timer(1000).subscribe(p => this.Mock_Tips());
+
     // Event Modal TIPS
     this.EVENT_MODAL_TIP.subscribe(p => {
-
       // Loader game
       this.svcHome.getGame('').subscribe((data: TipListModel) => {
         // Atribuir propriedades
@@ -53,7 +56,7 @@ export class IndexComponent implements OnInit, OnDestroy {
     // Loader new event
     this.svcHome.getNewEvent().subscribe((data: any) => {
       // Atribuir propriedades
-      this.modalEvent.assignProperties(data[0]);
+      this.modalEvent.assignProperties(data);
       $('#modalEvent').modal('show');
     });
   }
@@ -63,6 +66,14 @@ export class IndexComponent implements OnInit, OnDestroy {
       .getGamesOfDays()
       .subscribe((p: Array<GameModel>) => {
         this.lstGames = p;
+      });
+  }
+
+  private Mock_Tips() {
+    this.svcHome
+      .getTipsOfDays()
+      .subscribe((p: Array<any>) => {
+        this.lstTipsOfDays = p;
       });
   }
 

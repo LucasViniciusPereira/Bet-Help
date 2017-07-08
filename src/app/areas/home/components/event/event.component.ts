@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { BaseBusiness } from './../../../../shared/class/base.business';
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-home-event',
@@ -30,6 +31,10 @@ export class EventComponent extends BaseBusiness implements OnInit {
   }
 
   addTip(element: any) {
+    element.Market = _.where(this.lstMarket, { MarketID: element.MarketID })[0].Description;
 
+    this.lstTips.push(element);
+    this.tipModel.reset();
+    this.tipModel.clearValidators();
   }
 }

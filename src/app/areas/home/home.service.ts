@@ -25,7 +25,19 @@ export class HomeService {
   }
 
   getNewEvent() {
-    const url = 'http://www.mocky.io/v2/595ed4690f000059000eaaf6';
+    const url = 'http://www.mocky.io/v2/59613465100000610aac5ade';
+
+    return this.svcHttp.get(url);
+  }
+
+  getTips() {
+    // const url = 'http://www.mocky.io/v2/59613465100000610aac5ade';
+
+    // return this.svcHttp.get(url);
+  }
+
+  getTipsOfDays() {
+    const url = 'http://www.mocky.io/v2/59614baf100000c30aac5af4';
 
     return this.svcHttp.get(url);
   }
