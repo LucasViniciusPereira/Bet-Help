@@ -36,9 +36,7 @@ export class IndexComponent implements OnInit, OnDestroy {
       // Loader game
       this.svcHome.getGame('').subscribe((data: TipListModel) => {
         // Atribuir propriedades
-        // data[0].tipModel = { MarketID: 1, Odds: 10, Value: 10 };
         this.modalTip.assignProperties(data[0]);
-
         $('#modalTips').modal('show');
       });
     });
