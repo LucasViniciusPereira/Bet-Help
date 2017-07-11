@@ -1,7 +1,7 @@
 import { TipModel } from './../../models/tip/tip.model';
 import { EventModel } from './../../models/event/event.model';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 
 import { BaseBusiness } from './../../../../shared/class/base.business';
 import * as _ from 'underscore';
@@ -13,7 +13,7 @@ import * as _ from 'underscore';
 })
 export class EventComponent extends BaseBusiness implements OnInit {
 
-  eventModel = this.fb.group(new EventModel());
+  eventModel = this.fb.group(new EventModel(this.fb));
   tipModel = this.fb.group(new TipModel(this.fb));
 
   lstTeamPrincipal: Array<any> = new Array<any>();
@@ -32,8 +32,12 @@ export class EventComponent extends BaseBusiness implements OnInit {
 
   addTip(element: any) {
     element.Market = _.where(this.lstMarket, { MarketID: element.MarketID })[0].Description;
+    const control = <FormArray>this.eventModel.get('LstTips');
+    control.push(this.fb.group({ Market: 'Mercado', Odds: '1', Value: '26,30' }));
+    control.push(this.fb.group({ Market: 'Mercado 2', Odds: '111', Value: '1,30' }));
 
-    this.lstTips.push(element);
+    console.log(<FormArray>this.eventModel.get('LstTips'));
+
     this.tipModel.reset();
     this.tipModel.clearValidators();
   }

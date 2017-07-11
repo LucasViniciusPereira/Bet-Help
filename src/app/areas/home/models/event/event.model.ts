@@ -1,4 +1,4 @@
-import { Validators, FormControl } from '@angular/forms';
+import { Validators, FormControl, FormArray, FormBuilder } from '@angular/forms';
 
 export class EventModel {
 
@@ -6,8 +6,9 @@ export class EventModel {
   TeamPrincipalID = [null, Validators.required];
   TeamVisitorID = [null, Validators.required];
 
-  LstTips: Array<any> = [null, Validators.required];
+  LstTips = this.fb.array([]);
 
   constructor(
+    private fb: FormBuilder
   ) { };
 }
