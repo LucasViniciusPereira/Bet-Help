@@ -1,3 +1,4 @@
+import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,11 +15,12 @@ import { LoginFormModel } from './models/login.form.model';
 
 export class LoginComponent implements OnInit {
 
-  FormLogin: LoginFormModel = new LoginFormModel();
+  FormLogin = this.fb.group(new LoginFormModel());
 
   constructor(
     private svcAuth: AuthService,
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
   ) { }
 
   ngOnInit() {
@@ -30,11 +32,11 @@ export class LoginComponent implements OnInit {
 
   @ValidateException
   public submit() {
-    const validate = this.FormLogin.ValidateLogin();
+    // const validate = this.FormLogin ValidateLogin();
 
-    if (validate.hasValidation()) {
-      return validate;
-    }
+    // if (validate.hasValidation()) {
+    //   return validate;
+    // }
 
     const result = this.svcAuth.Mock_validacaoUsuario(this.FormLogin);
 

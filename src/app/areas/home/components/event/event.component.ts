@@ -30,6 +30,10 @@ export class EventComponent extends BaseBusiness implements OnInit {
   ngOnInit() {
   }
 
+  isValidCustom(): boolean {
+    return this.eventModel.controls.LstTips.value.length <= 0 || !this.eventModel.valid;
+  }
+
   addTip(element: any) {
     element.Market = _.where(this.lstMarket, { MarketID: element.MarketID })[0].Description;
     const control = <FormArray>this.eventModel.get('LstTips');

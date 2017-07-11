@@ -9,7 +9,7 @@ export class LoginFormModel {
   constructor() {
   }
 
-  public ValidateLogin(): Validation.BusinessValidation {
+  ValidateLogin(): Validation.BusinessValidation {
     const validation: Validation.BusinessValidation = new Validation.BusinessValidation;
 
     if (this.Email == null || this.Email === undefined) {
