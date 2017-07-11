@@ -8,7 +8,7 @@ export class TipModel {
   MarketID = [null, Validators.required];
   Odds = [null, Validators.required];
   Value = [null, Validators.required];
-  InLive = [false, Validators.required];
+  InLive = [true, Validators.required];
 
   // Examples
   // Endereco = this.fb.group(new EnderecoModel());

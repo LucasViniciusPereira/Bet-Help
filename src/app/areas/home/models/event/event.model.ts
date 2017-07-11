@@ -6,8 +6,9 @@ export class EventModel {
   TeamPrincipalID = [null, Validators.required];
   TeamVisitorID = [null, Validators.required];
 
-  LstTips: Array<any> = [null, Validators.required];
+  LstTips = new Array<any>();
 
   constructor(
+    // private fb: FormBuilder
   ) { };
 }
