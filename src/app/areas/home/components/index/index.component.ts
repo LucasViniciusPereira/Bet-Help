@@ -76,5 +76,4 @@ export class IndexComponent implements OnInit, OnDestroy {
         this.lstTipsOfDays = p;
       });
   }
-
 }

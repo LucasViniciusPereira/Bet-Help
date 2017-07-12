@@ -37,7 +37,7 @@ export class HomeService {
   }
 
   getTipsOfDays() {
-    const url = 'http://www.mocky.io/v2/59614baf100000c30aac5af4';
+    const url = 'http://www.mocky.io/v2/59657334110000c800c8f1c7';
 
     return this.svcHttp.get(url);
   }

@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { TipModel } from './../../models/tip/tip.model';
 import { EventModel } from './../../models/event/event.model';
 import { Component, OnInit } from '@angular/core';
@@ -13,13 +14,16 @@ import * as _ from 'underscore';
 })
 export class EventComponent extends BaseBusiness implements OnInit {
 
+  // Model
   eventModel = this.fb.group(new EventModel(this.fb));
   tipModel = this.fb.group(new TipModel(this.fb));
 
+  // Listas
   lstTeamPrincipal: Array<any> = new Array<any>();
   lstTeamVisitor: Array<any> = new Array<any>();
-  lstTips: Array<any> = new Array<any>();
   lstMarket = new Array<any>();
+
+  lstTips = <FormArray>this.eventModel.get('LstTips');
 
   constructor(
     private fb: FormBuilder
@@ -36,20 +40,17 @@ export class EventComponent extends BaseBusiness implements OnInit {
 
   addTip(element: any) {
     element.Market = _.where(this.lstMarket, { MarketID: element.MarketID })[0].Description;
-    const control = <FormArray>this.eventModel.get('LstTips');
-    control.push(this.fb.group({ Market: 'Mercado', Odds: '1', Value: '26,30' }));
-    control.push(this.fb.group({ Market: 'Mercado 2', Odds: '111', Value: '1,30' }));
+    this.lstTips.push(this.fb.group(element));
 
-    console.log(<FormArray>this.eventModel.get('LstTips'));
-
-    // const control = <FormArray>this.eventModel.controls['LstTips'];
-    this.lstTips.push(element);
     this.resetFormTip();
   }
 
+  removeTip(indexElement: any) {
+    this.lstTips.removeAt(indexElement);
+  }
+
   submit() {
-    // let control = this.eventModel.controls['LstTips'];
-    // control = "this.lstTips;";
+    console.log('Falta Implementar');
   }
 
   resetFormTip() {
