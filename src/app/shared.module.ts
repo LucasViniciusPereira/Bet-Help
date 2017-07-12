@@ -12,7 +12,8 @@ import { GlobalService } from './shared/services/global.service';
 // Componentes
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
 
-// Diretivas
+// Modulos
+// import { Ng2InputMaskModule } from 'ng2-input-mask';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { DisplayValidationComponent } from './shared/components/display.validati
   imports: [
     CommonModule,
     HttpModule,
+    // Ng2InputMaskModule
   ],
   providers: [
     GlobalService,
