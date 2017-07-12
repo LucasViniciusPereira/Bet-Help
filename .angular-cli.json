@@ -32,8 +32,7 @@
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/bootstrap-material-design/dist/js/material.min.js",
         "../node_modules/bootstrap-material-design/dist/js/ripples.min.js",
-        "../node_modules/node-snackbar/dist/snackbar.min.js",
-        "../node_modules/jquery-mask-plugin/dist/jquery.mask.min.js"
+        "../node_modules/node-snackbar/dist/snackbar.min.js"
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

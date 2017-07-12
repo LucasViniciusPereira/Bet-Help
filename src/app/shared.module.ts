@@ -12,9 +12,7 @@ import { GlobalService } from './shared/services/global.service';
 
 // Componentes
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
-
-// Modulos
-import { Ng2InputMaskModule } from 'ng2-input-mask';
+import {Ng2MaskModule} from 'ng2-mask';
 
 @NgModule({
   declarations: [
@@ -23,14 +21,15 @@ import { Ng2InputMaskModule } from 'ng2-input-mask';
   exports: [
     DisplayValidationComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Ng2MaskModule
   ],
   imports: [
     CommonModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2InputMaskModule
+    Ng2MaskModule
   ],
   providers: [
     GlobalService,

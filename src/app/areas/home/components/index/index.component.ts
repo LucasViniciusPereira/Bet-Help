@@ -25,7 +25,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   @ViewChild(TipComponent) modalTip: TipComponent;
   @ViewChild(EventComponent) modalEvent: EventComponent;
-
+teste;
   constructor(
     private svcHome: HomeService
   ) { }
