@@ -8,7 +8,6 @@ import { AppRoutingModule } from './app.routing.module';
 // Modulos
 import { HomeModule } from './areas/home/home.module';
 import { LoginModule } from './areas/login/login.module';
-// import { Ng2InputMaskModule } from 'ng2-input-mask';
 
 // Componentes
 import { NotFoundComponent } from './shared/components/404/404.component';
@@ -31,9 +30,8 @@ import { MenuComponent } from './shared/components/menu/menu.component';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    // Ng2InputMaskModule,
     HomeModule,
-    LoginModule,
+    LoginModule
   ],
   bootstrap: [AppComponent]
 })

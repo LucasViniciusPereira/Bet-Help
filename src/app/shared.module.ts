@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 // Serviços
@@ -13,7 +14,7 @@ import { GlobalService } from './shared/services/global.service';
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
 
 // Modulos
-// import { Ng2InputMaskModule } from 'ng2-input-mask';
+import { Ng2InputMaskModule } from 'ng2-input-mask';
 
 @NgModule({
   declarations: [
@@ -21,11 +22,15 @@ import { DisplayValidationComponent } from './shared/components/display.validati
   ],
   exports: [
     DisplayValidationComponent,
+    FormsModule,
+    ReactiveFormsModule
   ],
   imports: [
     CommonModule,
     HttpModule,
-    // Ng2InputMaskModule
+    FormsModule,
+    ReactiveFormsModule,
+    Ng2InputMaskModule
   ],
   providers: [
     GlobalService,
