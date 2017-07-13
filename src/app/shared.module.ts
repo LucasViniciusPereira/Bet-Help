@@ -12,7 +12,11 @@ import { GlobalService } from './shared/services/global.service';
 
 // Componentes
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
-import {Ng2MaskModule} from 'ng2-mask';
+
+// Modulos
+import { Ng2MaskModule } from 'ng2-mask';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { SelectModule } from 'ng2-select';
 
 @NgModule({
   declarations: [
@@ -22,14 +26,18 @@ import {Ng2MaskModule} from 'ng2-mask';
     DisplayValidationComponent,
     FormsModule,
     ReactiveFormsModule,
-    Ng2MaskModule
+    Ng2MaskModule,
+    CurrencyMaskModule,
+    SelectModule
   ],
   imports: [
     CommonModule,
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2MaskModule
+    Ng2MaskModule,
+    CurrencyMaskModule,
+    SelectModule
   ],
   providers: [
     GlobalService,

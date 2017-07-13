@@ -10,8 +10,7 @@
           </div>
         </div>
         <hr class="custom-hr" />
-        <input type='text' mask='9999-99-99' specialCharacters="false" [(ngModel)]="teste">
-        {{teste }}
+
         <!--Componente de jogos-->
         <app-scoreboard [games]="lstGames" [controlsEvent]="[
                     { name: 'Palpite', icon: 'help_outline', action: EVENT_MODAL_TIP }
@@ -61,8 +60,10 @@
             </tbody>
           </table>
         </div>
-
-        <span>Nenhum palpite realizado hoje.</span>
+        <div *ngIf="lstTipsOfDays.length <= 0">
+           <span>Nenhum palpite realizado hoje.</span>
+        </div>
+       
         <!--{{ lstTipsOfDays | json }}-->
       </fieldset>
     </div>

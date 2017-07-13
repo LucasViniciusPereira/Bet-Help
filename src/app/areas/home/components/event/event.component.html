@@ -13,12 +13,21 @@
           <div class="row">
             <div class="col-xs-12 col-sm-6">
               <div class="form-group">
-                <label for="ddlMarket" class="control-label">Time mandante</label>
-                <select id="ddlMarket" class="form-control" type="number" formControlName="TeamPrincipalID">
+                <!--<label for="ddlMarket" class="control-label">Time mandante</label>-->
+
+                <ng-select [allowClear]="true"
+              [items]="lstTeamPrincipal"
+             
+              
+              placeholder="No city selected">
+  </ng-select>
+
+{{value.text}}
+                <!--<select id="ddlMarket" class="form-control" type="number" formControlName="TeamPrincipalID">
                     <option *ngFor="let item of lstTeamPrincipal" [ngValue]="item.TeamID">
                         {{item.Name}}
                     </option>
-                </select>
+                </select>-->
                 <display-validation [control]="eventModel.controls.TeamPrincipalID"></display-validation>
               </div>
             </div>
@@ -55,7 +64,6 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="txtOdds" class="control-label">Odds</label>
-                 <!--[mask]="'cep'"-->
                 <input id="txtOdds" type="text" class="form-control" formControlName="Odds" />
                 <display-validation [control]="tipModel.controls.Odds"></display-validation>
               </div>
@@ -63,7 +71,7 @@
             <div class="col-xs-12 col-sm-4 col-md-4">
               <div class="form-group">
                 <label for="txtValue" class="control-label">Valor</label>
-                <input type="text" class="form-control" id="txtValue" formControlName="Value" />
+                <input type="text" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" class="form-control" id="txtValue" formControlName="Value" />
                 <display-validation [control]="tipModel.controls.Value"></display-validation>
               </div>
             </div>
@@ -89,6 +97,8 @@
 
         </form>
 
+        {{ tipModel.value | json }}
+
         <div class="row">
           <div class="col-xs-12">
             <fieldset>
@@ -109,7 +119,7 @@
                     <td> {{ item.InLive === true ? "In Live" : "Pré Live" }}</td>
                     <td> {{ item.Market }}</td>
                     <td> {{ item.Odds }}</td>
-                    <td> {{ item.Value }}</td>
+                    <td> {{ item.Value | currency:'BRL':true }}</td>
                     <td><a href="javascript:void(0)" (click)="removeTip(i)">Remover</a></td>
                   </tr>
                 </tbody>

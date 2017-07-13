@@ -13,7 +13,7 @@ import * as _ from 'underscore';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent extends BaseBusiness implements OnInit {
-
+private value:any = {};
   // Model
   eventModel = this.fb.group(new EventModel(this.fb));
   tipModel = this.fb.group(new TipModel(this.fb));
@@ -51,6 +51,10 @@ export class EventComponent extends BaseBusiness implements OnInit {
 
   submit() {
     console.log('Falta Implementar');
+  }
+
+   refreshValue(value:any):void {
+    this.value = value;
   }
 
   resetFormTip() {
