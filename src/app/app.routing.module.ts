@@ -6,11 +6,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './areas/login/login.component';
 import { IndexComponent } from './areas/home/components/index/index.component';
 import { NotFoundComponent } from './shared/components/404/404.component';
+import { MonitoringComponent } from './areas/home/components/monitoring/monitoring.component';
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   {
     path: 'home', component: IndexComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'monitoring', component: MonitoringComponent,
     canActivate: [AuthGuard]
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },

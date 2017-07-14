@@ -3,7 +3,6 @@ import { GameModel } from './../../../../shared/models/game/game.model';
 import { TipModel } from './../../models/tip/tip.model';
 
 import { Observable } from 'rxjs/Rx';
-import { TipComponent } from './../tip/tip.component';
 import { HomeService } from './../../home.service';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
 
@@ -23,7 +22,7 @@ export class IndexComponent implements OnInit, OnDestroy {
   // Observers
   EVENT_MODAL_TIP = new EventEmitter();
 
-  @ViewChild(TipComponent) modalTip: TipComponent;
+  // @ViewChild(TipComponent) modalTip: TipComponent;
   @ViewChild(EventComponent) modalEvent: EventComponent;
 teste;
   constructor(
@@ -42,7 +41,7 @@ teste;
       // Loader game
       this.svcHome.getGame('').subscribe((data: TipListModel) => {
         // Atribuir propriedades
-        this.modalTip.assignProperties(data[0]);
+        // this.modalTip.assignProperties(data[0]);
         $('#modalTips').modal('show');
       });
     });

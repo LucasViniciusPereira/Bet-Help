@@ -12,23 +12,33 @@ import { GlobalService } from './shared/services/global.service';
 
 // Componentes
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
+import { TipComponent } from './shared/components/tip/tip.component';
+import { ScoreboardComponent } from './shared/components/scoreboard/scoreboard.component';
 
 // Modulos
 import { Ng2MaskModule } from 'ng2-mask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { SelectModule } from 'ng2-select';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
-    DisplayValidationComponent
+    DisplayValidationComponent,
+    TipComponent,
+    ScoreboardComponent
   ],
   exports: [
+    // Componentes
     DisplayValidationComponent,
+    TipComponent,
+    ScoreboardComponent,
+    // Modulos
     FormsModule,
     ReactiveFormsModule,
     Ng2MaskModule,
     CurrencyMaskModule,
-    SelectModule
+    SelectModule,
+    NgxPaginationModule
   ],
   imports: [
     CommonModule,
@@ -37,7 +47,8 @@ import { SelectModule } from 'ng2-select';
     ReactiveFormsModule,
     Ng2MaskModule,
     CurrencyMaskModule,
-    SelectModule
+    SelectModule,
+    NgxPaginationModule
   ],
   providers: [
     GlobalService,

@@ -4,11 +4,10 @@ import { NgModule } from '@angular/core';
 // Modulos
 import { SharedModule } from './../../shared.module';
 
-import { ScoreboardComponent } from './../../shared/components/scoreboard/scoreboard.component';
 import { HomeService } from './home.service';
 import { IndexComponent } from './components/index/index.component';
-import { TipComponent } from './components/tip/tip.component';
 import { EventComponent } from './components/event/event.component';
+import { MonitoringComponent } from './components/monitoring/monitoring.component';
 
 @NgModule({
   imports: [
@@ -17,13 +16,11 @@ import { EventComponent } from './components/event/event.component';
   ],
   declarations: [
     IndexComponent,
-    ScoreboardComponent,
-    TipComponent,
-    EventComponent
+    EventComponent,
+    MonitoringComponent
   ],
   exports: [
-    IndexComponent,
-    TipComponent
+    IndexComponent
   ],
   providers: [
     HomeService
