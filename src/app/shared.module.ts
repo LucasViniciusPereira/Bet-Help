@@ -20,18 +20,21 @@ import { Ng2MaskModule } from 'ng2-mask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { SelectModule } from 'ng2-select';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { StatusTipComponent } from './shared/components/status.tip/status.tip.component';
 
 @NgModule({
   declarations: [
     DisplayValidationComponent,
     TipComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    StatusTipComponent
   ],
   exports: [
     // Componentes
     DisplayValidationComponent,
     TipComponent,
     ScoreboardComponent,
+    StatusTipComponent,
     // Modulos
     FormsModule,
     ReactiveFormsModule,

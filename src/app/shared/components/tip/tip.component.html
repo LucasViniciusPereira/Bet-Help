@@ -1,39 +1,34 @@
 <div class="row">
   <div class="col-xs-12">
 
-
-    <ul>
-      <li *ngFor="let item of lstTips | paginate: { itemsPerPage: 10, currentPage: p }">
-        <span>{{ item.StatusID }}</span>
-        <span>{{ item.TeamPrincipal }}</span>
-        <span>X</span>
-        <span>{{ item.TeamVisitor }}</span>
-      </li>
-    </ul>
-
-    <pagination-controls (pageChange)="p = $event"></pagination-controls>
-
     <div *ngIf="lstTips.length <= 0">
       <span>Nenhum palpite realizado hoje.</span>
     </div>
 
-    <div *ngFor="let item of lstTips">
-      <div class="event">
-        <span>{{ item.StatusID }}</span>
-        <span>{{ item.TeamPrincipal }}</span>
-        <span>X</span>
-        <span>{{ item.TeamVisitor }}</span>
+
+    <div *ngIf="lstTips.length > 0">
+      <div *ngFor="let item of lstTips | paginate: { itemsPerPage: 10, currentPage: p }">
+        <div class="event">
+          <app-status-tip [status]="item.StatusID"></app-status-tip>
+
+          <span>{{ item.TeamPrincipal }}</span>
+          <span>X</span>
+          <span>{{ item.TeamVisitor }}</span>
+        </div>
+        <table class="table table-striped table-hover">
+          <tbody>
+            <tr *ngFor="let tip of item.Tips">
+              <app-status-tip [status]="tip.StatusID"></app-status-tip>
+
+              <td> {{ tip.Market }} </td>
+              <td> {{ tip.Odds }} </td>
+              <td> {{ tip.Value }} </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="table table-striped table-hover">
-        <tbody>
-          <tr *ngFor="let tip of item.Tips">
-            <td> {{ tip.StatusID }} </td>
-            <td> {{ tip.Market }} </td>
-            <td> {{ tip.Odds }} </td>
-            <td> {{ tip.Value }} </td>
-          </tr>
-        </tbody>
-      </table>
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
 
   </div>
