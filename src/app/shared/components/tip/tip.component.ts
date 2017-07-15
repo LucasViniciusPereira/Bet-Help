@@ -1,5 +1,9 @@
-import { element } from 'protractor';
-import { Component, OnInit, Input } from '@angular/core';
+
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+
+import { Enumerations } from './../../../utils/enumerations';
+import { EventComponent } from './../../../areas/home/components/event/event.component';
+import { HomeService } from './../../../areas/home/home.service';
 declare var $: any;
 
 @Component({
@@ -8,11 +12,17 @@ declare var $: any;
   styleUrls: ['./tip.component.css']
 })
 export class TipComponent implements OnInit {
-  p = 1;
+  page = 1;
+  eStatusTip = Enumerations.eStatusTip;
+  modalEditEvent = 'modalEditEvent';
+
   @Input('tips') lstTips: Array<any>;
   @Input() showControls = false;
+  @ViewChild(EventComponent) modalEventTip: EventComponent;
 
-  constructor() { }
+  constructor(
+    private svcHome: HomeService
+  ) { }
 
   ngOnInit() {
   }
@@ -26,4 +36,11 @@ export class TipComponent implements OnInit {
     console.log(element);
   }
 
+  editTip() {
+    this.svcHome.getNewEvent().subscribe((data: any) => {
+      // Atribuir propriedades
+      this.modalEventTip.assignProperties(data);
+      $(`#${this.modalEditEvent}`).modal('show');
+    });
+  }
 }

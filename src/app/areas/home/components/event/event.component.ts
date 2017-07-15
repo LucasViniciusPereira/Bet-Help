@@ -1,7 +1,7 @@
 import { element } from 'protractor';
 import { TipModel } from './../../models/tip/tip.model';
 import { EventModel } from './../../models/event/event.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 import { BaseBusiness } from './../../../../shared/class/base.business';
@@ -13,7 +13,6 @@ import * as _ from 'underscore';
   styleUrls: ['./event.component.css']
 })
 export class EventComponent extends BaseBusiness implements OnInit {
-private value:any = {};
   // Model
   eventModel = this.fb.group(new EventModel(this.fb));
   tipModel = this.fb.group(new TipModel(this.fb));
@@ -25,6 +24,8 @@ private value:any = {};
 
   lstTips = <FormArray>this.eventModel.get('LstTips');
 
+  @Input() modalID;
+
   constructor(
     private fb: FormBuilder
   ) {
@@ -32,6 +33,7 @@ private value:any = {};
   }
 
   ngOnInit() {
+    console.log(this.modalID);
   }
 
   isValidCustom(): boolean {
@@ -51,10 +53,6 @@ private value:any = {};
 
   submit() {
     console.log('Falta Implementar');
-  }
-
-   refreshValue(value:any):void {
-    this.value = value;
   }
 
   resetFormTip() {

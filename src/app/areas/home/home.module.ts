@@ -6,7 +6,7 @@ import { SharedModule } from './../../shared.module';
 
 import { HomeService } from './home.service';
 import { IndexComponent } from './components/index/index.component';
-import { EventComponent } from './components/event/event.component';
+// import { EventComponent } from './components/event/event.component';
 import { MonitoringComponent } from './components/monitoring/monitoring.component';
 
 @NgModule({
@@ -16,11 +16,12 @@ import { MonitoringComponent } from './components/monitoring/monitoring.componen
   ],
   declarations: [
     IndexComponent,
-    EventComponent,
+   // EventComponent,
     MonitoringComponent
   ],
   exports: [
-    IndexComponent
+    IndexComponent,
+    // EventComponent
   ],
   providers: [
     HomeService

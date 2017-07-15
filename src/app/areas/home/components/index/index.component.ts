@@ -1,10 +1,11 @@
-import { EventComponent } from './../event/event.component';
-import { GameModel } from './../../../../shared/models/game/game.model';
-import { TipModel } from './../../models/tip/tip.model';
 
 import { Observable } from 'rxjs/Rx';
 import { HomeService } from './../../home.service';
 import { Component, OnInit, EventEmitter, ViewChild, OnDestroy } from '@angular/core';
+
+import { EventComponent } from './../event/event.component';
+import { GameModel } from './../../../../shared/models/game/game.model';
+import { TipModel } from './../../models/tip/tip.model';
 
 import { TipListModel } from './../../models/tip/tip.list.model';
 import { HelperMessage } from 'app/utils/_helpers/helper.message';
@@ -16,6 +17,8 @@ declare var $: any;
   styleUrls: ['./index.component.css']
 })
 export class IndexComponent implements OnInit, OnDestroy {
+  modalCreateEvent = 'modalCreateEvent';
+
   lstGames: Array<any> = new Array<any>();
   lstTipsOfDays: Array<any> = new Array<any>();
 
@@ -24,7 +27,7 @@ export class IndexComponent implements OnInit, OnDestroy {
 
   // @ViewChild(TipComponent) modalTip: TipComponent;
   @ViewChild(EventComponent) modalEvent: EventComponent;
-teste;
+
   constructor(
     private svcHome: HomeService
   ) { }
@@ -56,7 +59,7 @@ teste;
     this.svcHome.getNewEvent().subscribe((data: any) => {
       // Atribuir propriedades
       this.modalEvent.assignProperties(data);
-      $('#modalEvent').modal('show');
+      $(`#${ this.modalCreateEvent }`).modal('show');
     });
   }
 

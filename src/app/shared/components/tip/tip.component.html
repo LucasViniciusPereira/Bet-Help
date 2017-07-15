@@ -5,15 +5,21 @@
       <span>Nenhum palpite realizado hoje.</span>
     </div>
 
+    <!--Modal de Eventos-->
+    <app-home-event [modalID]="modalEditEvent"></app-home-event>
 
     <div *ngIf="lstTips.length > 0">
-      <div *ngFor="let item of lstTips | paginate: { itemsPerPage: 10, currentPage: p }">
+      <div *ngFor="let item of lstTips | paginate: { itemsPerPage: 10, currentPage: page }">
         <div class="event">
           <app-status-tip [status]="item.StatusID"></app-status-tip>
 
           <span>{{ item.TeamPrincipal }}</span>
           <span>X</span>
           <span>{{ item.TeamVisitor }}</span>
+
+          <span *ngIf="item.StatusID == eStatusTip.OPEN">
+            <a href="javascript:void(0)" (click)="editTip()">Editar</a>
+          </span>
         </div>
         <table class="table table-striped table-hover">
           <tbody>
@@ -32,13 +38,13 @@
         </table>
       </div>
 
-      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 
   </div>
 </div>
 
-
+<!-- Modal para confirmar palpite -->
 <div id="modalConfirmTip" class="modal">
   <div class="modal-dialog">
     <div class="modal-content">

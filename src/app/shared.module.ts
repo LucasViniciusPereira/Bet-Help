@@ -14,20 +14,22 @@ import { GlobalService } from './shared/services/global.service';
 import { DisplayValidationComponent } from './shared/components/display.validation.component';
 import { TipComponent } from './shared/components/tip/tip.component';
 import { ScoreboardComponent } from './shared/components/scoreboard/scoreboard.component';
+import { EventComponent } from './areas/home/components/event/event.component';
+import { StatusTipComponent } from './shared/components/status.tip/status.tip.component';
 
 // Modulos
 import { Ng2MaskModule } from 'ng2-mask';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { SelectModule } from 'ng2-select';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { StatusTipComponent } from './shared/components/status.tip/status.tip.component';
 
 @NgModule({
   declarations: [
     DisplayValidationComponent,
     TipComponent,
     ScoreboardComponent,
-    StatusTipComponent
+    StatusTipComponent,
+    EventComponent
   ],
   exports: [
     // Componentes
@@ -35,6 +37,7 @@ import { StatusTipComponent } from './shared/components/status.tip/status.tip.co
     TipComponent,
     ScoreboardComponent,
     StatusTipComponent,
+    EventComponent,
     // Modulos
     FormsModule,
     ReactiveFormsModule,
