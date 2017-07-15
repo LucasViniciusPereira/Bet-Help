@@ -22,7 +22,11 @@
 
               <td> {{ tip.Market }} </td>
               <td> {{ tip.Odds }} </td>
-              <td> {{ tip.Value }} </td>
+              <td> {{ tip.Value | currency:'BRL':true }} </td>
+              <td *ngIf="showControls">
+                <a href="javascript:void(0)" (click)="win(tip)">Acertou</a> |
+                <a href="javascript:void(0)" (click)="lose(tip)">Errou</a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -31,5 +35,28 @@
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
 
+  </div>
+</div>
+
+
+<div id="modalConfirmTip" class="modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title">
+          <span id="txtModalTitleTip"></span>
+        </h4>
+      </div>
+      <div class="modal-body">
+        <p>
+          Deseja realmente confirmar o palpite ?
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary">Confirmar</button>
+      </div>
+    </div>
   </div>
 </div>
